@@ -1,0 +1,79 @@
+DIPLOMACY = {
+	c:NET = {
+        s:STATE_FLANDERS = {
+			add_claim = c:NET
+		}
+        s:STATE_WALLONIA = {
+			add_claim = c:NET
+		}
+    }
+
+	c:SAR = {
+        s:STATE_LOMBARDY = {
+			add_claim = c:SAR
+		}
+        s:STATE_VENETIA = {
+			add_claim = c:SAR
+		}
+    }
+
+	c:MOL = {
+        s:STATE_MOLDAVIA = {
+			add_claim = c:MOL
+		}
+    }
+
+	c:ARG = {
+        s:STATE_SOUTH_ATLANTIC_ISLANDS = {
+			add_claim = c:ARG
+		}
+    }
+
+
+    c:POR = {
+        every_state = {
+            limit = {
+                OR = {
+				owner = c:BRZ
+				owner = c:PRA
+				owner = c:PNI
+                }
+			}
+			this.state_region = {
+				add_claim = c:POR
+			}
+        }
+    }
+    
+    c:TUR = {
+        every_state = {
+            limit = {
+				owner = c:GRE
+			}
+			this.state_region = {
+				add_claim = c:TUR
+			}
+        }
+    }
+
+    c:PER = {
+        every_state = {
+            limit = {
+				OR = {
+				owner = c:AFG
+				owner = c:KHI
+				owner = c:BUK
+				owner = c:KAL
+				owner = c:MAK
+				}
+			}
+			this.state_region = {
+				add_claim = c:PER
+			}
+        }
+
+        s:STATE_LARISTAN = {
+			add_claim = c:PER
+		}
+    }
+}

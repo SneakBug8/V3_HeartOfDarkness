@@ -1,0 +1,53 @@
+namespace = italy_puppet
+
+# Italy absorbs other states
+italy_puppet.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = can_aus.1.t
+	desc = can_aus.1.d
+	flavor = can_aus.1.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+		exists = c:ITA
+        any_scope_state = {
+            state_region = {
+                    OR = {
+                    is_homeland = cu:north_italian
+                    is_homeland = cu:south_italian
+                    }
+                }
+            }
+							
+            NOT = { country_rank = rank_value:great_power }
+        }
+
+	option = {
+		name = can_aus.1.a
+		default_option = yes
+
+        random_scope_state = {
+            limit = {
+                state_region = {
+                    OR = {
+                    is_homeland = cu:north_italian
+                    is_homeland = cu:south_italian
+                    }
+                }
+            }
+            set_state_owner = c:ITA
+        }
+	}
+}

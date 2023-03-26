@@ -1,0 +1,3 @@
+fdi_modifier = {
+    country_construction_add = 5
+}

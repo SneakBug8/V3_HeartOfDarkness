@@ -1,0 +1,73 @@
+﻿# goods types, organized by category
+
+# prestige_factor							Base prestige for occupying the rank MIN_PRESTIGE_AWARD spot on the goods production leaderboard. x2 awarded for every rank above the minimum.
+
+############
+# MILITARY #
+############
+
+ammunition = {
+	texture = "gfx/interface/icons/goods_icons/ammunition.dds"
+	cost = 100
+	category = military
+	
+	prestige_factor = 5
+}
+
+small_arms = {
+	texture = "gfx/interface/icons/goods_icons/small_arms.dds"
+	cost = 120
+	category = military
+	
+	prestige_factor = 5
+}
+
+artillery = {
+	texture = "gfx/interface/icons/goods_icons/artillery.dds"
+	cost = 140
+	category = military
+	
+	prestige_factor = 5
+	traded_quantity = 3.5
+	convoy_cost_multiplier = 1.5
+}
+
+tanks = {
+	texture = "gfx/interface/icons/goods_icons/tanks.dds"
+	cost = 240
+	category = military
+	
+	prestige_factor = 10
+	traded_quantity = 3
+	convoy_cost_multiplier = 2.0
+}
+
+aeroplanes = {
+	texture = "gfx/interface/icons/goods_icons/aeroplanes.dds"
+	cost = 240
+	category = military
+	
+	prestige_factor = 10
+	traded_quantity = 3
+	convoy_cost_multiplier = 2.0
+}
+
+manowars = {
+	texture = "gfx/interface/icons/goods_icons/man_o_wars.dds"
+	cost = 200
+	category = military
+	
+	prestige_factor = 5
+	traded_quantity = 2.5
+	convoy_cost_multiplier = 0.5
+}
+
+ironclads = {
+	texture = "gfx/interface/icons/goods_icons/ironclads.dds"
+	cost = 300
+	category = military
+	
+	prestige_factor = 10
+	traded_quantity = 2.5
+	convoy_cost_multiplier = 0.5
+}

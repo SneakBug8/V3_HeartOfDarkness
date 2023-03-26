@@ -1,0 +1,224 @@
+﻿small_country_boost = {
+    is_shown = {
+        is_player = yes
+		NOT = { has_variable = small_country_boost }
+		country_rank <= rank_value:major_power 
+    }
+
+    when_taken = {
+		set_variable = small_country_boost
+
+        add_investment_pool = 500000
+        add_treasury = 500000
+
+        if = {
+            limit = {
+                NOT = { is_country_type = unrecognized }
+            }
+            every_scope_state = {
+                random_list = {
+                    1 = {
+                        create_building = {
+                        building="building_food_industry"
+                    level = 1}}
+                    1 = { create_building = {
+                        building="building_textile_mills"
+                    level = 1 }}
+                    1 = { create_building = {
+                        building="building_glassworks"
+                    level =1 }}
+                    1 = { create_building = {
+                        building="building_tooling_workshops"
+                    level=1 }}
+                    1 = { create_building = {
+                        building="building_paper_mills"
+                    level=1} }
+                    1 = { create_building = {
+                        building="building_shipyards"
+                    level=1} }
+                    1 = { create_building = {
+                        building="building_arms_industry"
+                    level =1 }}
+                }
+            }
+        }
+
+        every_scope_state = {
+            random_list = {
+                1 = { create_building = state.b:building_livestock_ranch }
+                1 = { create_building = state.b:building_rye_farm }
+                1 = { create_building = state.b:building_wheat_farm }
+                1 = { create_building = state.b:building_rice_farm }
+                1 = { create_building = building_maize_farm }
+                1 = { create_building = building_millet_farm }
+                1 = { create_building = building_coffee_plantation }
+                1 = { create_building = building_cotton_plantation }
+                1 = { create_building = building_opium_plantation }
+                1 = { create_building = building_tea_plantation }
+                1 = { create_building = building_tobacco_plantation }
+                1 = { create_building = building_sugar_plantation }
+                1 = { create_building = building_banana_plantation }
+                1 = { create_building = building_silk_plantation }
+
+            }
+        }
+
+        ai_chance = {
+            base = 0
+        }
+    }
+}
+
+unify_colombia = {
+    is_shown = {
+        is_player = yes
+        OR = {
+            country_or_subject_owns_entire_state_region = STATE_BOLIVAR
+        country_or_subject_owns_entire_state_region = STATE_MIRANDA
+
+        country_or_subject_owns_entire_state_region = STATE_ANTIOQUIA
+
+        country_or_subject_owns_entire_state_region = STATE_ZULIA
+        country_or_subject_owns_entire_state_region = STATE_GUAVIARE
+        country_or_subject_owns_entire_state_region = STATE_CAUCA
+        country_or_subject_owns_entire_state_region = STATE_CUNDINAMARCA
+        }
+    }
+
+    limit = {
+        country_or_subject_owns_entire_state_region = STATE_BOLIVAR
+        country_or_subject_owns_entire_state_region = STATE_MIRANDA
+
+        country_or_subject_owns_entire_state_region = STATE_ANTIOQUIA
+
+        country_or_subject_owns_entire_state_region = STATE_ZULIA
+        country_or_subject_owns_entire_state_region = STATE_GUAVIARE
+        country_or_subject_owns_entire_state_region = STATE_CAUCA
+        country_or_subject_owns_entire_state_region = STATE_CUNDINAMARCA
+    }
+
+    when_taken = {
+        if = {
+            limit = {exists = c:VNZ}
+            annex = c:VNZ
+        }
+        if = {
+            limit = {exists = c:CLM}
+            annex = c:CLM
+        }
+        if = {
+            limit = {exists = c:ECU}
+            annex = c:ECU
+        }
+
+        every_scope_state = {
+            limit = {
+                state_region = {
+                    is_homeland = north_andean
+                }
+            }
+			save_scope_as = unify_colombia_spawn
+        }
+
+        create_country = {
+            tag = GCO
+            origin = this
+            state = scope:unify_colombia_spawn
+        }
+
+        create_diplomatic_pact = {
+            country = c:GCO
+            type = dominion
+        }
+    }
+
+}
+
+unify_sgf = {
+    is_shown = {
+        is_player = yes
+        country_or_subject_owns_entire_state_region = STATE_BAVARIA
+    }
+
+    limit = {
+        country_or_subject_owns_entire_state_region = STATE_BAVARIA
+    }
+
+    when_taken = {
+        every_scope_state = {
+            limit = {
+                state_region = s:STATE_BAVARIA
+            }
+			save_scope_as = unify_sgf_spawn
+        }
+        
+        create_country = {
+            tag = SGF
+            origin = this
+            state = scope:unify_sgf_spawn
+        }
+
+        create_diplomatic_pact = {
+            country = c:SGF
+            type = dominion
+        }
+    }
+}
+
+occupy_split = {
+    is_shown = {
+        is_player = yes
+    }
+
+    limit = {
+        is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		is_revolutionary = no
+
+        any_state = {
+            OR = {
+                    is_split_state = yes 
+                    is_treaty_port = yes
+            }
+            state_region = {
+                any_scope_state = { owner = ROOT }
+            }
+
+            NOT = { owner = ROOT }
+            owner = {
+                    is_revolutionary = no
+                }
+			save_scope_as = to_be_captured
+        }
+    }
+
+    when_taken = {
+        random_state = {
+            limit = {
+                OR = {
+                    is_split_state = yes 
+                    is_treaty_port = yes
+                }
+				state_region = {
+					any_scope_state = { owner = ROOT }
+				}
+
+                NOT = { owner = ROOT }
+                owner = {
+                    is_revolutionary = no
+                }
+            }
+			save_scope_as = to_be_captured
+        }
+
+        change_infamy = 10
+        scope:to_be_captured = { 
+
+            state_region = {
+                add_claim = scope:to_be_captured.owner
+            }
+
+            set_state_owner = ROOT
+		}
+    }
+}

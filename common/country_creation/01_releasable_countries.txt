@@ -1,0 +1,64 @@
+
+GCO = {
+	use_culture_states = yes
+	
+	required_num_states = 5
+	ai_will_do = { always = no }
+
+}
+
+
+ITA = {
+	use_culture_states = yes
+	
+	required_num_states = 5
+	ai_will_do = { always = no }
+
+    possible = {
+		country_or_subject_owns_entire_state_region = STATE_LAZIO
+	}
+
+}
+
+IDN = {
+	states = {
+		STATE_ACEH
+		STATE_CENTRAL_JAVA
+		STATE_EAST_BORNEO
+		STATE_EAST_JAVA
+		STATE_MALAYA
+		STATE_MOLUCCAS
+		STATE_CELEBES
+		STATE_NORTH_BORNEO
+		STATE_NORTH_SUMATRA
+		STATE_SOUTH_SUMATRA
+		STATE_SUNDA_ISLANDS
+		STATE_WEST_BORNEO
+		STATE_WESTERN_NEW_GUINEA
+		STATE_WEST_JAVA
+	}
+
+	required_num_states = 7
+	
+	ai_will_do = { always = no }
+}
+
+SIC = {
+	states = {
+		STATE_SICILY
+		STATE_CAMPANIA
+		STATE_ABRUZZO
+		STATE_APULIA
+		STATE_CALABRIA
+	}
+	
+	ai_will_do = { always = no }
+}
+
+SGF = {
+	use_culture_states = yes
+
+	required_num_states = 4
+	
+	ai_will_do = { always = no }
+}
