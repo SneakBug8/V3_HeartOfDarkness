@@ -32,10 +32,11 @@
 |           | Rebalanced AI’s agressivenes and willingless to conquer states<br />ИИ должен быть агрессивнее, но соблюдать стратегии и не лезть в рандомные авантюры (Австрия захватывает Бельгию или Индия Уругвай) | WIP                         |
 |           | Added a bunch of secret goals for conquest to carve up the world more | Done                        |
 |           | Decision to occupy split state (e.g. treaty port) before other party starts diploplay to return it | Done                        |
+|           | Kavour diplomacy decision for SAR                            | Done                        |
 | Politics  | Stronger Springtime of the peoples                           | WIP                         |
 |           | IGs twice more impacted by existing laws                     | Too many revolutions for AI |
 |           | Stronger conservative laws                                   | WIP                         |
 | War       | Slower overseas generals                                     | Done                        |
-|           | More costly war goods                                        | Done                        |
+|           | More costly war goods                                        | Crippling for the AI        |
 |           | More convoys per batallion overseas<br />(10->20)            | Done                        |
 

@@ -176,6 +176,9 @@ cavour_diplomacy = {
         exists = c:SAR
         c:SAR = ROOT
         NOT = {has_variable = cavour_diplomacy}
+        is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		is_revolutionary = no
     }
 
     when_taken = {
