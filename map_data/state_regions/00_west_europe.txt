@@ -632,7 +632,7 @@ STATE_NORMANDY = {
     mine = "x0B7098"
     wood = "x90A040"
     arable_land = 90
-    arable_resources = { "bg_wheat_farms" "bg_livestock_ranches", "bg_silk_plantations" }
+    arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" "bg_silk_plantations" }
     capped_resources = {
         bg_logging = 10
         bg_whaling = 10
@@ -1378,7 +1378,7 @@ STATE_BAVARIA = {
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" }
     capped_resources = {
         bg_coal_mining = 60
-        bg_sulphur_mining = 30
+        bg_sulfur_mining = 30
         bg_logging = 23
     }
 }
