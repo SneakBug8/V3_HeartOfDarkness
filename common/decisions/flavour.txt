@@ -165,60 +165,58 @@ unify_sgf = {
     }
 }
 
-occupy_split = {
+cavour_diplomacy = {
     is_shown = {
-        is_player = yes
+        exists = c:SAR
+        c:SAR = ROOT
+        NOT = {has_variable = cavour_diplomacy}
     }
 
     limit = {
-        is_at_war = no
-		is_diplomatic_play_committed_participant = no
-		is_revolutionary = no
-
-        any_state = {
-            OR = {
-                    is_split_state = yes 
-                    is_treaty_port = yes
-            }
-            state_region = {
-                any_scope_state = { owner = ROOT }
-            }
-
-            NOT = { owner = ROOT }
-            owner = {
-                    is_revolutionary = no
-                }
-			save_scope_as = to_be_captured
-        }
+        exists = c:SAR
+        c:SAR = ROOT
+        NOT = {has_variable = cavour_diplomacy}
     }
 
     when_taken = {
-        random_state = {
+        set_variable = cavour_diplomacy
+        every_scope_state = {
             limit = {
                 OR = {
-                    is_split_state = yes 
-                    is_treaty_port = yes
-                }
-				state_region = {
-					any_scope_state = { owner = ROOT }
-				}
-
-                NOT = { owner = ROOT }
-                owner = {
-                    is_revolutionary = no
+                    state_region = s:STATE_SAVOY
+                    state_region = s:STATE_PROVENCE
                 }
             }
-			save_scope_as = to_be_captured
+            set_state_owner = c:FRA
+        }
+        
+        create_diplomatic_pact = {
+            country = c:FRA
+            type = alliance
         }
 
-        change_infamy = 10
-        scope:to_be_captured = { 
+        FRA = {
+            set_owes_obligation = {
+                country = c:SAR
+                setting = yes
+            } 
+        }
 
-            state_region = {
-                add_claim = scope:to_be_captured.owner
+        create_diplomatic_play = {
+					target_state = s:STATE_LOMBARDY.region_state:AUS
+					target_country = c:AUS
+
+					type = dp_return_state
+
+                    add_war_goal = {
+                        holder = ROOT
+                        type = return_state
+                        target_state = s:STATE_VENETIA.region_state:AUS
+                    }
             }
+    }
 
-            set_state_owner = ROOT
-		}
+	ai_chance = {
+        base = 5
     }
 }

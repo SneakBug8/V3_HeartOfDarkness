@@ -156,3 +156,43 @@ fdi.2 = {
 
     
 }
+
+fdi.3 = {
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        }
+
+        option = {
+            random_state = {
+                limit = {
+                    owner = scope:occupier
+                    state_region = scope:captured_state_region
+                }
+                save_scope_as = occupied
+            }
+
+		    create_diplomatic_play = {
+					target_state = scope:occupied
+					target_country = scope:occupier
+
+					type = dp_return_state
+            }
+        }
+
+
+        option = {
+        }
+}

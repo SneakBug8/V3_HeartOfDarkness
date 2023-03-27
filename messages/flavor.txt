@@ -1,0 +1,8 @@
+state_occupied_message = {
+	type = country
+    group = "diplo_play_start_notification_group"
+	
+	texture = "gfx/interface/icons/notification_icons/diplomatic_play.dds"
+
+	notification_type = toast
+}

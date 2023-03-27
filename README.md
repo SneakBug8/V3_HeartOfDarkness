@@ -19,6 +19,7 @@
 |           | Rebalance silk, cotton and dyes across the map (overall reduction) | Fine adjustment             |
 |           | Rebalance tobacco, tea, coffee across the map (overall reduction) | Fine adjustment             |
 |           | Make AI more eager to set up trade routes to compensate for deficit of goods | To Do                       |
+|           | Make easier time adding AIs to Customs Union                 | Done                        |
 | Diplomacy | Diplomatic action to make puppet a dominion                  | Done                        |
 |           | Claims for Netherlands over Belgium                          | Done                        |
 |           | Claims for Turkey over Greece                                | Done                        |
@@ -30,10 +31,11 @@
 |           | More predictable Diploplay AI<br />(Less reluctance to abandon allies and subjects, redrawn sympathies, more neutrality score) | Done                        |
 |           | Rebalanced AI’s agressivenes and willingless to conquer states<br />ИИ должен быть агрессивнее, но соблюдать стратегии и не лезть в рандомные авантюры (Австрия захватывает Бельгию или Индия Уругвай) | WIP                         |
 |           | Added a bunch of secret goals for conquest to carve up the world more | Done                        |
-|           | Decision to occupy split state (e.g. treaty port) before other party start diploplay to return it | To Do                       |
+|           | Decision to occupy split state (e.g. treaty port) before other party starts diploplay to return it | Done                        |
 | Politics  | Stronger Springtime of the peoples                           | WIP                         |
 |           | IGs twice more impacted by existing laws                     | Too many revolutions for AI |
-| War       | Slower overseas general                                      | Done                        |
+|           | Stronger conservative laws                                   | WIP                         |
+| War       | Slower overseas generals                                     | Done                        |
 |           | More costly war goods                                        | Done                        |
 |           | More convoys per batallion overseas<br />(10->20)            | Done                        |
 

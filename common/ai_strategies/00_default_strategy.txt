@@ -578,7 +578,7 @@ ai_strategy_default = {
 				}
 			}
 			}
-			add = 0.5
+			add = 1
 		}
 		
 		# Higher aggression against subject/overlord if domineering or rebellious
@@ -2235,7 +2235,7 @@ ai_strategy_default = {
 		}
 		conquer = {
 			value = 0
-	
+			
 			if = {
 				limit = {
 					can_reach_target_country = yes
@@ -2889,29 +2889,84 @@ ai_strategy_default = {
 					can_reach_target_state = yes
 
 					OR = {
-					has_secret_goal = {
-						who = scope:target_country
-						secret_goal = conquer
-					}					
-						ruler = {
-							interest_group = { 
-								is_interest_group_type = ig_armed_forces
+						has_secret_goal = {
+							who = scope:target_country
+							secret_goal = conquer
+						}
+						has_strategic_adjacency = scope:target_country
+						scope:target_country = {
+							OR = {
+								country_is_in_south_america = yes
+								country_is_in_central_america = yes
+								country_is_in_north_america = yes
 							}
+						}
+						AND = {
+							OR = {
+								country_is_in_europe = yes
+								country_is_in_india = yes
+								country_is_in_southeast_asia = yes
+								country_is_in_africa = yes	
+								country_is_in_east_asia = yes	
+								country_is_in_middle_east = yes
+							}
+							scope:target_country = {
+								OR = {
+									country_is_in_india = yes
+									country_is_in_southeast_asia = yes
+									country_is_in_africa = yes	
+									country_is_in_east_asia = yes	
+									country_is_in_middle_east = yes
+								}
+							}
+						}
+						scope:target_country = {
+							is_country_type = unrecognized 
+						}
 					}
-					ig:ig_armed_forces = {
-						is_powerful = yes
-					}
-					country_is_in_south_america = yes
-					country_is_in_central_america = yes
-					country_is_in_india = yes
-					country_is_in_southeast_asia = yes
-					country_is_in_africa = yes	
-					country_is_in_east_asia = yes	
-					country_is_in_middle_east = yes	
-				}
 				}
 				add = {
 					value = 20
+
+					if = {
+						limit = {
+							market_capital.market = {	
+								mg:iron = { 
+									market_goods_pricier > 0.3 
+								}
+							}
+
+						scope:target_state = {
+							any_building {
+								OR = {
+									is_building_type = bg_iron_mining
+									has_potential_resource = bg_iron_mining
+								}
+							}
+						}
+						}
+						add = 10	
+					}
+
+					if = {
+						limit = {
+							market_capital.market = {	
+								mg:coal = { 
+									market_goods_pricier > 0.3 
+								}
+							}
+
+						scope:target_state = {
+							any_building {
+								OR = {
+									is_building_type = bg_coal_mining
+									has_potential_resource = bg_coal_mining
+								}
+							}
+						}
+						}
+						add = 10	
+					}
 
 					if = {
 						limit = {
@@ -3350,7 +3405,7 @@ ai_strategy_default = {
 					has_strategic_land_adjacency = scope:target_state
 					scope:target_state = { 
 						is_split_state = yes 
-						region = { 
+						state_region = { 
 							any_scope_state = { owner = ROOT }
 						}
 					}
@@ -3434,7 +3489,7 @@ ai_strategy_default = {
 				limit = {	
 					scope:target_state = { 
 						is_treaty_port = yes 
-						region = { 
+						state_region = { 
 							any_scope_state = { 
 								OR = {
 									owner = { is_subject_of = ROOT }
@@ -3642,7 +3697,22 @@ ai_strategy_default = {
 						has_secret_goal = {
 							who = scope:target_country
 							secret_goal = dominate
-						}						
+						}
+						has_strategic_adjacency = scope:target_country
+						
+
+					scope:target_country = {
+						OR = {
+							is_country_type = unrecognized 
+						country_is_in_south_america = yes
+						country_is_in_central_america = yes
+						country_is_in_india = yes
+						country_is_in_southeast_asia = yes
+						country_is_in_africa = yes	
+						country_is_in_east_asia = yes	
+						country_is_in_middle_east = yes		
+						}
+					}			
 					}
 				}
 			
@@ -3827,12 +3897,65 @@ ai_strategy_default = {
 						has_secret_goal = {
 							who = scope:target_country
 							secret_goal = dominate
-						}			
+						}
+						ruler = {
+						interest_group = { 
+							is_interest_group_type = ig_armed_forces
+						}
+					}
+					ig:ig_armed_forces = {
+						is_powerful = yes
+					}
+					country_is_in_south_america = yes
+					country_is_in_central_america = yes
+					country_is_in_india = yes
+					country_is_in_southeast_asia = yes
+					country_is_in_africa = yes	
+					country_is_in_east_asia = yes	
+					country_is_in_middle_east = yes				
 					}
 				}
 				
 				add = {
 					value = 50
+
+					if = {
+						limit = {
+							market_capital.market = {	
+								mg:coal = { 
+									market_goods_pricier > 0.3 
+								}
+							}
+						}
+
+						scope:target_country= {
+							market_capital.market = {	
+								mg:coal = { 
+									market_goods_cheaper > 0.0
+								}
+							}
+						}
+						add = 10	
+					}
+
+					if = {
+						limit = {
+							market_capital.market = {	
+								mg:iron = { 
+									market_goods_pricier > 0.3 
+								}
+							}
+						}
+
+						scope:target_country= {
+							market_capital.market = {	
+								mg:iron = { 
+									market_goods_cheaper > 0.0
+								}
+							}
+						}
+						add = 10	
+					}
 				
 					add = {
 						value = scope:target_country.gdp
@@ -3958,7 +4081,22 @@ ai_strategy_default = {
 						has_secret_goal = {
 							who = scope:target_country
 							secret_goal = dominate
-						}				
+						}
+						ruler = {
+						interest_group = { 
+							is_interest_group_type = ig_armed_forces
+						}
+					}
+					ig:ig_armed_forces = {
+						is_powerful = yes
+					}
+					country_is_in_south_america = yes
+					country_is_in_central_america = yes
+					country_is_in_india = yes
+					country_is_in_southeast_asia = yes
+					country_is_in_africa = yes	
+					country_is_in_east_asia = yes	
+					country_is_in_middle_east = yes					
 					}
 				}
 				
