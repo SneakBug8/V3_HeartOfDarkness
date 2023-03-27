@@ -40,3 +40,9 @@
 |           | More costly war goods                                        | Crippling for the AI        |
 |           | More convoys per batallion overseas<br />(10->20)            | Done                        |
 
+## Includes
+
+https://catalogue.smods.ru/archives/157735
+https://catalogue.smods.ru/archives/157731
+https://catalogue.smods.ru/archives/157732
+https://catalogue.smods.ru/archives/153379
