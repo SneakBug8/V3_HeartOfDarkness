@@ -43,6 +43,9 @@
 ## Includes
 
 https://catalogue.smods.ru/archives/157735
-https://catalogue.smods.ru/archives/157731
-https://catalogue.smods.ru/archives/157732
+https://catalogue.smods.ru/archives/157731 Subject Management UI
+https://catalogue.smods.ru/archives/157732 State Transfer Tool UI
 https://catalogue.smods.ru/archives/153379
+https://catalogue.smods.ru/archives/158575 OPB tweaks
+https://catalogue.smods.ru/archives/162603 Ethnostates buffs
+https://catalogue.smods.ru/archives/162755 More state traits
