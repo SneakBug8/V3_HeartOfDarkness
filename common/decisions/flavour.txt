@@ -138,6 +138,9 @@ unify_sgf = {
     is_shown = {
         is_player = yes
         country_or_subject_owns_entire_state_region = STATE_BAVARIA
+        not = {
+            exists = c:SGF
+        }
     }
 
     limit = {
@@ -220,6 +223,41 @@ cavour_diplomacy = {
     }
 
 	ai_chance = {
-        base = 5
+        base = 0
+        modifier = {
+			trigger = { 
+				c:AUS = {
+                    is_at_war = yes
+                }
+			}
+			add = 5
+		}
+    }
+}
+
+inherit_claims = {
+    is_shown = {
+        is_player = yes
+    }
+
+    limit = {
+        is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		is_revolutionary = no
+    }
+
+    when_taken = {
+        every_country = {
+            limit = {
+                is_subject_of = ROOT
+            }
+
+            every_state = {
+                limit = {
+                    has_claim_by = PREV
+                }
+                add_claim = ROOT
+            }
+        }
     }
 }

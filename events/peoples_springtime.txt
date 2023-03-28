@@ -23,6 +23,7 @@ peoples_springtime.1 = {
 		country_is_in_europe = yes
 		has_technology_researched = egalitarianism
 		any_interest_group = {
+			is_insurrectionary = yes
 			leader = { has_ideology = ideology_radical }
 		}
 	}
@@ -33,10 +34,12 @@ peoples_springtime.1 = {
 		}
 		set_global_variable = {
 			name = peoples_springtime_recent
-			months = normal_modifier_time
+            value = yes
+            days = 4000
 		}
 		random_interest_group = {
 			limit = {
+				is_insurrectionary = yes
 				leader = { has_ideology = ideology_radical }
 			}
 			leader = { save_scope_as = radical_ig_leader }
@@ -236,7 +239,7 @@ peoples_springtime.4 = {
 			owner = {
 				has_technology_researched = egalitarianism
 				any_interest_group = {
-					is_powerful = yes
+					is_marginal = no
 					OR = {
 						is_interest_group_type = ig_rural_folk
 						is_interest_group_type = ig_intelligentsia
@@ -248,6 +251,9 @@ peoples_springtime.4 = {
 						NOT = { has_ideology = ideology_radical }
 					}
 				}
+				NOT = {
+					has_journal_entry = je_springtime_of_the_peoples
+				}
 			}
 		}
 		any_interest_group = {
@@ -257,7 +263,7 @@ peoples_springtime.4 = {
 
 	duration = 3
 
-	cooldown = { months = normal_modifier_time }
+	cooldown = { months = 24 }
 
 	option = {
 		name = peoples_springtime.4.a
@@ -266,7 +272,7 @@ peoples_springtime.4 = {
 				owner = {
 					has_technology_researched = egalitarianism
 					any_interest_group = {
-						is_powerful = yes
+						is_marginal = no
 						OR = {
 							is_interest_group_type = ig_rural_folk
 							is_interest_group_type = ig_intelligentsia
@@ -343,7 +349,7 @@ peoples_springtime.5 = {
 		name = peoples_springtime.5.a
 		random_scope_state = {
 			add_radicals = {
-				value = very_large_radicals
+				value = large_radicals
 			}
 		}
 	}
@@ -352,7 +358,7 @@ peoples_springtime.5 = {
 		name = peoples_springtime.5.b
 		capital = {
 			add_radicals = {
-				value = very_large_radicals
+				value = large_radicals
 			}
 		}
 		default_option = yes

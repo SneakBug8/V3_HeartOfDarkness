@@ -196,3 +196,48 @@ fdi.3 = {
         option = {
         }
 }
+
+
+fdi.4 = {
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        year > 1850
+        exists = c:JAP
+        c:JAP = ROOT
+        is_player = no
+        has_law = law_type:law_isolationism
+        }
+
+        option = {
+            random_country = {
+                limit = {
+                    OR = {
+                    c:GBR = THIS
+                    c:USA = THIS
+                    c:RUS = THIS
+                    c:FRA = THIS
+                    }
+                    is_player = no
+                }
+
+                create_diplomatic_play = {
+					target_country = c:JAP
+
+					type = dp_open_market
+                }
+            }
+        }
+}

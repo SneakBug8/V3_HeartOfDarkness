@@ -26,7 +26,14 @@
 		has_diplomatic_relevance = scope:target_country
 		NOR = {
 			scope:target_country = { has_law = law_type:law_isolationism }
-			has_law = law_type:law_isolationism					
+			has_law = law_type:law_isolationism
+			scope:target_country = { has_journal_entry = je_warlord_china }
+			scope:target_country = {
+				this = c:CHI
+			}
+			scope:target_country = {
+				this = c:TUR
+			}			
 		}		
 		custom_tooltip = {
 			text = DIPLO_ACTION_RELATIONS_CORDIAL_OR_GREATER

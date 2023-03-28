@@ -55,7 +55,16 @@ ai_strategy_default = {
 	# Added to base neutrality in diplomatic plays	
 	# Using this value in other strategies will function additively
 	diplomatic_play_neutrality = {
-		value = 50 
+		value = 50
+
+		if = { #Taiping should never surrender against China.
+			limit = {
+				any_diplomatic_play = {
+					has_play_goal = dp_leadership_germany
+				}
+			}
+			add = 1000
+		}
 	}
 	
 	# Added to base boldness in diplomatic plays	
@@ -546,6 +555,15 @@ ai_strategy_default = {
 		}
 
 		if = {
+			limit = { 
+				scope:target_country = {
+					NOT = { is_country_type = recognized }
+				}
+			}
+			add = 0.5
+		}
+
+		if = {
 			limit = {
 				country_is_in_south_america = yes
 			}
@@ -558,7 +576,20 @@ ai_strategy_default = {
 					country_is_in_europe = yes
 				}
 			}
-			add = -0.25
+			divide = 2
+		}
+
+		if = {
+				limit = {
+					OR = 
+					{this = c:GBR
+					this = c:USA }
+					year < 1900	
+					scope:target_country = {
+						country_is_in_europe = yes
+					}					
+				}
+			divide = 4
 		}
 
 		if = {
@@ -567,7 +598,7 @@ ai_strategy_default = {
 					is_powerful = yes
 				}
 			}
-			add = 1
+			multiply = 0.5
 		}
 
 		if = {
@@ -578,7 +609,7 @@ ai_strategy_default = {
 				}
 			}
 			}
-			add = 1
+			multiply = 0.5
 		}
 		
 		# Higher aggression against subject/overlord if domineering or rebellious
@@ -692,7 +723,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 25
+			add = 100
 		}
 
 		# USA should be extremely aggressive against owners of their Manifest Destiny states
@@ -712,7 +743,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 25
+			add = 100
 		}
 
 		# Extra french aggression for Haiti renouncing debt payments
@@ -741,6 +772,28 @@ ai_strategy_default = {
 				}
 			}
 			add = 25
+		}
+
+				# Ethiopian Thunderdome
+		if = {
+			limit = {
+				has_journal_entry = je_age_of_princes
+				scope:target_country = {
+					has_journal_entry = je_age_of_princes
+				}
+			}
+			add = 25
+		}
+		# Warlord China Thunderdome
+		if = {
+			limit = {
+				has_global_variable = china_shatters
+				has_variable = warlord_state
+				scope:target_country = {
+					has_variable = warlord_state
+				}
+			}
+			add = 50
 		}
 
 		# Veiled Protectorate
@@ -830,7 +883,7 @@ ai_strategy_default = {
 				}
 				can_reach_target_country = yes
 			}
-			add = 10
+			add = 50
 		}
 
 		# Aggression against radical leftists
@@ -852,6 +905,18 @@ ai_strategy_default = {
 				scope:target_country = {
 					has_radical_leftist_economy = yes				
 				}				
+			}
+			add = 0.5
+		}
+
+		if = {
+			limit = {	
+				AND = {
+					has_radical_leftist_government = yes
+					scope:target_country = {
+						has_radical_leftist_government = no
+					}
+				}
 			}
 			add = 0.5
 		}		
@@ -1410,7 +1475,7 @@ ai_strategy_default = {
 				multiply = 0.25
 			}
 		}
-	region_dnieper = {
+		region_dnieper = {
 			if = {
 				limit = {
 					OR = 
@@ -2323,23 +2388,23 @@ ai_strategy_default = {
 				add = 200
 			}
 
-			if = {
-			limit = {
-				OR = {
-				country_has_primary_culture = cu:north_italian
-				country_has_primary_culture = cu:south_italian
-				has_journal_entry = je_italian_unification
-				}
-				scope:target_country = {
-					OR = {
-				country_has_primary_culture = cu:north_italian
-				country_has_primary_culture = cu:south_italian
-				has_journal_entry = je_italian_unification
-				}
-				}
-			}
-			add = 200
-		}
+		#if = {
+		#	limit = {
+		#		OR = {
+		#		country_has_primary_culture = cu:north_italian
+		#		country_has_primary_culture = cu:south_italian
+		#		has_journal_entry = je_italian_unification
+		#		}
+		#		scope:target_country = {
+		#			OR = {
+		#		country_has_primary_culture = cu:north_italian
+		#		country_has_primary_culture = cu:south_italian
+		#		has_journal_entry = je_italian_unification
+		#		}
+		#		}
+		#	}
+		#	add = 200
+		#}
 			
 			if = {
 				limit = {
@@ -2553,7 +2618,6 @@ ai_strategy_default = {
 					has_game_rule = high_ai_aggression
 					can_reach_target_country = yes
 				}
-				add = 100
 				multiply = 1.5
 			}
 			
@@ -2788,6 +2852,7 @@ ai_strategy_default = {
 				limit = {
 					has_game_rule = high_ai_aggression
 				}
+				# add = 100
 				multiply = 1.5
 			}
 			
@@ -2887,13 +2952,13 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					can_reach_target_state = yes
+					has_strategic_adjacency = scope:target_country
 
 					OR = {
 						has_secret_goal = {
 							who = scope:target_country
 							secret_goal = conquer
 						}
-						has_strategic_adjacency = scope:target_country
 						scope:target_country = {
 							OR = {
 								country_is_in_south_america = yes
@@ -3050,7 +3115,8 @@ ai_strategy_default = {
 					}	
 				}
 			}	
-			else_if = {
+			
+			if = {
 				limit = {
 					can_reach_target_state = yes
 

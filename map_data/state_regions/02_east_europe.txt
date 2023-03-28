@@ -417,8 +417,7 @@ STATE_MAZOVIA = {
     arable_land = 100
     arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
     capped_resources = {
-        bg_coal_mining = 80
-        bg_logging = 15
+        bg_logging = 20
     }
 }
 
@@ -453,7 +452,7 @@ STATE_GREATER_POLAND = {
     arable_land = 60
     arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
     capped_resources = {
-        bg_logging = 15
+        bg_logging = 20
     }
 }
 
@@ -468,9 +467,10 @@ STATE_LESSER_POLAND = {
     arable_land = 80
     arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
     capped_resources = {
-        bg_coal_mining = 84
+        bg_coal_mining = 40
+        bg_iron_mining = 44
         bg_lead_mining = 60
-        bg_logging = 15
+        bg_logging = 20
     }
 }
 

@@ -3,5 +3,7 @@ on_yearly_pulse_country = {
         fdi.2
         caudillos.1
         italy_puppet.1
+        italy_puppet.2
+        fdi.4
     }
 }

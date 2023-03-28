@@ -6,6 +6,7 @@ NAI = {
     DIPLO_PLAY_ABANDON_SUBJECT_RELUCTANCE = 200
 
     DIPLO_PLAY_NEUTRALITY_PREFERENCE_DELTA_THRESHOLD = 75
+    DIPLO_PLAY_NEUTRALITY_IN_SUBJECT_CONFLICT = -70
 
     DIPLO_PLAY_BACK_DOWN_CHANCE_THRESHOLD = 10
     DIPLO_PLAY_SYMPATHY_ENEMY_OF_INFAMOUS_COUNTRY = 10
@@ -17,7 +18,11 @@ NAI = {
     DIPLO_PLAY_SYMPATHY_ENEMY_OF_ALLY_INITIATOR = -200 
     DIPLO_PLAY_SYMPATHY_ENEMY_OF_ALLY_TARGET = -100
 	DIPLO_PLAY_SYMPATHY_INCREASE_GAINED_BACKER = 200 # Sympathy is increased by up to this amount for enemy of a side which receives a new backer, scaled by their number of battalions compared to total forces in the play
-
+    
+    UNIFICATION_AGGRESSION_MULT_HIGHER_TIER = 1 # AI aggression is multiplied by this for calculating whether they should try to start a unification/leadership play, if the country would end up forming a nation of a higher tier
+	DIPLO_PLAY_SWAY_THRESHOLD = 1.5 # If AI has this much military strength compared to enemy, don't bother trying to sway anyone
+    CHANGE_LAW_CIVIL_WAR_AVERSION_SUBJECT_MULTIPLIER = 40 # Chance that AI stops enacting a law to avoid a civil war is increased by this for subjects
+	CHANGE_LAW_CIVIL_WAR_AVERSION_LAW_DIRECTION_FLEXIBILITY = 20 #10 # Revolution aversion is multiplied by this and added to the max progressiveness/regressiveness the AI is willing to stomach to avoid a revolution
 }
 
 NPolitics = {
@@ -51,4 +56,20 @@ NDiplomacy = {
 NPops = {
 	MIN_ASSIMILATION = 50			# vanilla 10; If there is any assmiliation at least this many people will assimilate
 	MIN_CONVERSION = 50				# vanilla 10; If there is any conversion at least this many people will convert
+    ASSIMILATION_RATE = 0.006 #0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
+	MIGRATION_PULL_MULT_FROM_CULTURE_TARGET = 30.0			# Migration pull multiplied by this from target state being a cultural migration target
+	MIGRATION_PULL_MULT_FROM_CULTURE_TARGET_ADJACENCY = 10.0 #5.0	# Migration pull multiplied by this from target state being next to a cultural migration target
+	CULTURAL_MIGRATION_BASE = 0.08 #0.05								# Base amount of a pop that wants to move due to mass migration
+	CULTURAL_MIGRATION_FROM_RADICALS = 0.25 #0.05						# At 100% radicals, this fraction of the pop wants to mass migrate
+	MIGRATION_UNEMPLOYMENT_MULT = 20.0							# Amount of migration from SoL is increased by this when a pop is unemployed
+	MIGRATION_MAX_PER_STATE_CULTURAL_EMIGRATION_MULT = 5.0 #3.0		# Weekly emigration caps are multiplied by this amount by this for cultural-type migration (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
+	MIGRATION_MAX_PER_STATE_CULTURAL_IMMIGRATION_MULT = 12.0 #8.0		# Weekly immigration caps are multiplied by this amount by this for cultural-type migration (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
+	MASS_MIGRATION_ORIGIN_MIN_TURMOIL = 0.2 #0.25			# Must have at least this much turmoil in cultural homelands to create a migration target
+	MASS_MIGRATION_TARGET_MAX_TURMOIL = 0.15 #0.2			# Must have this or less turmoil among the culture for a country to be picked as a mass migration target
+    MASS_MIGRATION_COOLDOWN_MONTHS = 30					# How many months before the same culture can mass migrate from a country again
+}
+
+NWar = {
+    MAX_SIMULTANEOUS_BATTLES = 2                    # Allows to spawn up to MAX_SIMULTANEOUS_BATTLES as long as you have that many generals with advance orders.
+	PREFER_BATTLES_IN_UNIQUE_STATES = yes
 }

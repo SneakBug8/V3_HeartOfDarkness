@@ -380,8 +380,7 @@ STATE_CASTILE = {
     arable_land = 70
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" "bg_cotton_plantations"  }
     capped_resources = {
-        bg_coal_mining = 36
-        bg_iron_mining = 27
+        bg_coal_mining = 56
         bg_logging = 6
     }
 }

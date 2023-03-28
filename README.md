@@ -20,6 +20,9 @@
 |           | Rebalance tobacco, tea, coffee across the map (overall reduction) | Fine adjustment             |
 |           | Make AI more eager to set up trade routes to compensate for deficit of goods | To Do                       |
 |           | Make easier time adding AIs to Customs Union                 | Done                        |
+|           | Countries whose market got forcefully opened get 30 tech spread bonus |                             |
+|           | Countries whose slavery got forcefully banned get 10% production tech bonus |                             |
+|           | Countries which got humiliated get 10% army tech bonus       |                             |
 | Diplomacy | Diplomatic action to make puppet a dominion                  | Done                        |
 |           | Claims for Netherlands over Belgium                          | Done                        |
 |           | Claims for Turkey over Greece                                | Done                        |
@@ -33,6 +36,12 @@
 |           | Added a bunch of secret goals for conquest to carve up the world more | Done                        |
 |           | Decision to occupy split state (e.g. treaty port) before other party starts diploplay to return it | Done                        |
 |           | Kavour diplomacy decision for SAR                            | Done                        |
+|           | Ensure Canada can be formed without Oregon treaty            |                             |
+|           | Prussia can form Germany ~50% of the time                    |                             |
+|           | Japan is opened up                                           |                             |
+|           | Wallachia and Moldavia unite                                 |                             |
+|           | US fulfills manifest destiny                                 |                             |
+| Pops      | Stronger and more frequent migrations                        | Done                        |
 | Politics  | Stronger Springtime of the peoples                           | WIP                         |
 |           | IGs twice more impacted by existing laws                     | Too many revolutions for AI |
 |           | Stronger conservative laws                                   | WIP                         |
@@ -49,3 +58,5 @@ https://catalogue.smods.ru/archives/153379
 https://catalogue.smods.ru/archives/158575 OPB tweaks
 https://catalogue.smods.ru/archives/162603 Ethnostates buffs
 https://catalogue.smods.ru/archives/162755 More state traits
+https://catalogue.smods.ru/archives/163139 Malaria icons
+https://catalogue.smods.ru/archives/135191 Equal customs union

@@ -51,3 +51,51 @@ italy_puppet.1 = {
         }
 	}
 }
+
+italy_puppet.2 = {
+	type = country_event
+	placement = ROOT
+
+	title = can_aus.1.t
+	desc = can_aus.1.d
+	flavor = can_aus.1.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+		exists = c:PRU
+        is_player = no
+        is_subject = no
+        is_at_war = no
+        any_scope_state = {
+            state_region = {
+                    is_homeland = cu:north_german
+                }
+            }
+							
+            NOT = { country_rank = rank_value:great_power }
+        }
+
+	option = {
+		name = can_aus.1.a
+		default_option = yes
+
+        random_scope_state = {
+            limit = {
+                state_region = {
+                    is_homeland = cu:north_german
+                }
+            }
+            set_state_owner = c:PRU
+        }
+	}
+}
