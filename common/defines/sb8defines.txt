@@ -5,8 +5,11 @@ NAI = {
     DIPLO_PLAY_ABANDON_ALLY_RELUCTANCE = 100
     DIPLO_PLAY_ABANDON_SUBJECT_RELUCTANCE = 200
 
-    DIPLO_PLAY_NEUTRALITY_PREFERENCE_DELTA_THRESHOLD = 75
+    DIPLO_PLAY_NEUTRALITY_PREFERENCE_DELTA_THRESHOLD = 100
     DIPLO_PLAY_NEUTRALITY_IN_SUBJECT_CONFLICT = -70
+    DIPLO_PLAY_NEUTRALITY_FROM_DEBT_LEVEL = 150 # At 100% debt level, add this amount of neutrality score
+	DIPLO_PLAY_NEUTRALITY_FROM_DEVASTATION_LEVEL = 200 # At 100% devastation across the country (weighted by state population), add this amount of neutrality score
+	DIPLO_PLAY_NEUTRALITY_FROM_TURMOIL = 200 # At 100% turmoil across the country (weighted by state population), add this amount of neutrality score
 
     DIPLO_PLAY_BACK_DOWN_CHANCE_THRESHOLD = 10
     DIPLO_PLAY_SYMPATHY_ENEMY_OF_INFAMOUS_COUNTRY = 10
@@ -17,7 +20,7 @@ NAI = {
     DIPLO_PLAY_SYMPATHY_INCREASE_ADDED_PRIMARY_WARGOAL = 0.1
     DIPLO_PLAY_SYMPATHY_ENEMY_OF_ALLY_INITIATOR = -200 
     DIPLO_PLAY_SYMPATHY_ENEMY_OF_ALLY_TARGET = -100
-	DIPLO_PLAY_SYMPATHY_INCREASE_GAINED_BACKER = 200 # Sympathy is increased by up to this amount for enemy of a side which receives a new backer, scaled by their number of battalions compared to total forces in the play
+	DIPLO_PLAY_SYMPATHY_INCREASE_GAINED_BACKER = 100 # Sympathy is increased by up to this amount for enemy of a side which receives a new backer, scaled by their number of battalions compared to total forces in the play
     
     UNIFICATION_AGGRESSION_MULT_HIGHER_TIER = 1 # AI aggression is multiplied by this for calculating whether they should try to start a unification/leadership play, if the country would end up forming a nation of a higher tier
 	DIPLO_PLAY_SWAY_THRESHOLD = 1.5 # If AI has this much military strength compared to enemy, don't bother trying to sway anyone

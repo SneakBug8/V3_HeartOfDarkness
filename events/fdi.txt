@@ -217,6 +217,9 @@ fdi.4 = {
         year > 1850
         exists = c:JAP
         c:JAP = ROOT
+        is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		is_revolutionary = no
         is_player = no
         has_law = law_type:law_isolationism
         }
@@ -231,6 +234,9 @@ fdi.4 = {
                     c:FRA = THIS
                     }
                     is_player = no
+                    is_at_war = no
+                    is_diplomatic_play_committed_participant = no
+                    is_revolutionary = no
                 }
 
                 create_diplomatic_play = {

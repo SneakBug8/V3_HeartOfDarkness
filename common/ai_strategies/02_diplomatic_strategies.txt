@@ -4,7 +4,7 @@
 	type = diplomatic
 	
 	wanted_army_ratio = {
-		value = 200000
+		value = 250000
 	}
 	
 	wanted_navy_ratio = {
@@ -1222,7 +1222,10 @@ ai_strategy_unify_germany = {
 	possible = {
 		OR = {
 			is_unification_candidate = GER
-			this = c:PRU
+			AND = {
+				exists = c:PRU
+				this = c:PRU
+				}
 		}	
 		NOT = { country_tier = empire }
 	}
@@ -1238,11 +1241,11 @@ ai_strategy_unify_italy = {
 	type = diplomatic
 	
 	wanted_army_ratio = {
-		value = 150000
+		value = 100000
 	}
 	
 	wanted_navy_ratio = {
-		value = 400000
+		value = 600000
 	}
 		
 	undesirable_infamy_level = {
@@ -1488,11 +1491,11 @@ ai_strategy_unify_ethiopia = {
 	type = diplomatic
 	
 	wanted_army_ratio = {
-		value = 150000
+		value = 100000
 	}
 	
 	wanted_navy_ratio = {
-		value = 400000
+		value = 600000
 	}
 	
 	undesirable_infamy_level = {
@@ -1690,11 +1693,11 @@ ai_strategy_unify_china = {
 	type = diplomatic
 	
 	wanted_army_ratio = {
-		value = 150000
+		value = 100000
 	}
 	
 	wanted_navy_ratio = {
-		value = 400000
+		value = 600000
 	}
 	
 	undesirable_infamy_level = {
@@ -1897,11 +1900,11 @@ ai_strategy_manifest_destiny = {
 	type = diplomatic
 	
 	wanted_army_ratio = {
-		value = 150000
+		value = 100000
 	}
 	
 	wanted_navy_ratio = {
-		value = 400000
+		value = 600000
 	}
 	
 	undesirable_infamy_level = {

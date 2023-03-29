@@ -827,6 +827,7 @@ STATE_CROATIA = {
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" }
     capped_resources = {
         bg_logging = 15
+        bg_iron_mining = 15
         bg_fishing = 15
     }
     naval_exit_id = 3033
@@ -883,6 +884,7 @@ STATE_MONTENEGRO = {
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" }
     capped_resources = {
         bg_lead_mining = 24
+        bg_iron_mining = 15
         bg_logging = 4
     }
     naval_exit_id = 3033

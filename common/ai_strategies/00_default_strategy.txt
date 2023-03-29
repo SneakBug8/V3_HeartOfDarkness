@@ -56,15 +56,6 @@ ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	diplomatic_play_neutrality = {
 		value = 50
-
-		if = { #Taiping should never surrender against China.
-			limit = {
-				any_diplomatic_play = {
-					has_play_goal = dp_leadership_germany
-				}
-			}
-			add = 1000
-		}
 	}
 	
 	# Added to base boldness in diplomatic plays	
@@ -554,10 +545,20 @@ ai_strategy_default = {
 			add = 0.5
 		}
 
+       
 		if = {
 			limit = { 
 				scope:target_country = {
 					NOT = { is_country_type = recognized }
+				}
+			}
+			add = 0.5
+		}
+
+		if = {
+			limit = { 
+				scope:target_country = {
+					 has_law = law_type:law_isolationism
 				}
 			}
 			add = 0.5
@@ -646,6 +647,23 @@ ai_strategy_default = {
 				}
 			}
 			add = 100
+		}
+
+		if = {
+			limit = {
+				OR = {
+					AND = { exists = c:NGF
+					this = c:NGF }
+					AND = {
+						exists = c:GER
+						this = c:GER
+					}
+				}
+				scope:target_country = {
+					owns_entire_state_region = STATE_ALSACE_LORRAINE
+				}
+			}
+			add = 20
 		}
 
 		if = { #Carving up China
@@ -2952,18 +2970,23 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					can_reach_target_state = yes
-					has_strategic_adjacency = scope:target_country
+					OR = {
+						scope:target_state = {
+							state_is_in_africa = yes	
+						}
+						has_strategic_adjacency = scope:target_country
+					}
 
 					OR = {
 						has_secret_goal = {
 							who = scope:target_country
 							secret_goal = conquer
 						}
-						scope:target_country = {
+						scope:target_state = {
 							OR = {
-								country_is_in_south_america = yes
-								country_is_in_central_america = yes
-								country_is_in_north_america = yes
+								state_is_in_south_america = yes
+								state_is_in_central_america = yes
+								state_is_in_north_america = yes
 							}
 						}
 						AND = {
@@ -2975,13 +2998,13 @@ ai_strategy_default = {
 								country_is_in_east_asia = yes	
 								country_is_in_middle_east = yes
 							}
-							scope:target_country = {
+							scope:target_state = {
 								OR = {
-									country_is_in_india = yes
-									country_is_in_southeast_asia = yes
-									country_is_in_africa = yes	
-									country_is_in_east_asia = yes	
-									country_is_in_middle_east = yes
+									state_is_in_india = yes
+									state_is_in_southeast_asia = yes
+									state_is_in_africa = yes	
+									state_is_in_east_asia = yes	
+									state_is_in_middle_east = yes
 								}
 							}
 						}

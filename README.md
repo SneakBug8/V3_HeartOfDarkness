@@ -46,6 +46,7 @@
 |           | IGs twice more impacted by existing laws                     | Too many revolutions for AI |
 |           | Stronger conservative laws                                   | WIP                         |
 | War       | Slower overseas generals                                     | Done                        |
+|           | Army quality matters more<br />(Quantity 1.5x troops count difference effect nerfed to 1) |                             |
 |           | More costly war goods                                        | Crippling for the AI        |
 |           | More convoys per batallion overseas<br />(10->20)            | Done                        |
 

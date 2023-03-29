@@ -1454,7 +1454,7 @@ missouri_compromise = {
 
 shogun_ig_forced_to_open_market = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
-	interest_group_ig_landowners_pol_str_mult = -0.75
+	interest_group_ig_landowners_pol_str_mult = -5
 }
 
 shogun_forced_to_open_market = {
