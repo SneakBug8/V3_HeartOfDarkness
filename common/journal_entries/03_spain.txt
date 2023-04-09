@@ -1,0 +1,116 @@
+﻿je_carlists_legacy = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+    is_shown_when_inactive = {
+        exists = c:SPA
+        THIS = c:SPA
+        is_subject = no
+    }
+      possible = {
+        any_scope_state = {
+            state_region = {
+                OR = {
+                    is_homeland = cu:caribeno
+                    is_homeland = cu:afro_caribeno
+                    is_homeland = cu:mexican
+                    is_homeland = cu:north_andean
+                    is_homeland = cu:south_andean
+                    is_homeland = cu:central_american
+                    is_homeland = cu:platinean
+                }
+            }
+        }
+
+        NOT = {
+            has_modifier = carlist_legacy
+        }
+    }
+    complete = {
+        any_state = {
+            percent = 1
+
+            OR = {
+            state_region = {
+                    NOR = {
+                        is_homeland = cu:caribeno
+                        is_homeland = cu:afro_caribeno
+                        is_homeland = cu:mexican
+                        is_homeland = cu:north_andean
+                        is_homeland = cu:south_andean
+                        is_homeland = cu:central_american
+                        is_homeland = cu:platinean
+                    }
+                }
+            }
+
+                ROOT = {
+                    country_or_subject_owns_entire_state_region = PREV
+                }
+            }
+    }
+    on_complete = {
+        add_modifier = carlist_legacy
+    }
+
+    weight = 1000
+    should_be_pinned_by_default = yes
+}
+
+je_aztecs_gold = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+    is_shown_when_inactive = {
+        OR = {
+            country_is_in_south_america = yes
+            country_is_in_central_america = yes
+		country_is_in_north_america = yes
+        }
+        is_subject = no
+    }
+      possible = {
+        any_scope_state = {
+            state_region = {
+                OR = {
+                    is_homeland = cu:caribeno
+                    is_homeland = cu:afro_caribeno
+                    is_homeland = cu:mexican
+                    is_homeland = cu:north_andean
+                    is_homeland = cu:south_andean
+                    is_homeland = cu:central_american
+                    is_homeland = cu:platinean
+                }
+            }
+        }
+
+        NOT = {
+            has_modifier = aztecs_gold
+        }
+    }
+    complete = {
+        any_state = {
+            percent = 1
+
+            OR = {
+            state_region = {
+                    NOR = {
+                        is_homeland = cu:caribeno
+                        is_homeland = cu:afro_caribeno
+                        is_homeland = cu:mexican
+                        is_homeland = cu:north_andean
+                        is_homeland = cu:south_andean
+                        is_homeland = cu:central_american
+                        is_homeland = cu:platinean
+                    }
+                }
+            }
+
+                ROOT = {
+                    country_or_subject_owns_entire_state_region = PREV
+                }
+            }
+    }
+    on_complete = {
+        add_modifier = aztecs_gold
+    }
+
+    weight = 1000
+    should_be_pinned_by_default = yes
+}

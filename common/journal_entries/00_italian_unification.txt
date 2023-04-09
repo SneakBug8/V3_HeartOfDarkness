@@ -188,6 +188,19 @@ immediate = {
 			add_claim = ROOT 
 			}
 		}
+
+	s:STATE_DALMATIA = { 
+		if = {
+			limit = {
+				any_scope_state = {
+					 NOT = {
+						owner = ROOT
+						}
+					}
+				}
+			add_claim = ROOT 
+			}
+		}
 	}
 	possible = {
 		country_rank >= rank_value:minor_power

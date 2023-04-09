@@ -1,0 +1,32 @@
+﻿je_french_elan = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+    is_shown_when_inactive = {
+        exists = c:FRA
+        THIS = c:FRA
+        is_subject = no
+    }
+    possible = {
+        NOT = {
+            has_modifier = elan
+        }
+    }
+    complete = {
+        any_state = {
+            count = 30
+
+            state_is_in_europe = yes
+                ROOT = {
+                    country_or_subject_owns_entire_state_region = PREV
+                }
+            }
+    }
+    on_complete = {
+        add_modifier = {
+            name = elan
+            months = 240
+        }
+    }
+
+    weight = 1000
+    should_be_pinned_by_default = yes
+}

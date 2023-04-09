@@ -12,7 +12,7 @@ ITA = {
 	use_culture_states = yes
 	
 	required_num_states = 5
-	ai_will_do = { always = no }
+	ai_will_do = { always = yes }
 
     possible = {
 		country_or_subject_owns_entire_state_region = STATE_LAZIO

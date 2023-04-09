@@ -436,6 +436,23 @@ ai_strategy_default = {
 				}
 			}
 			add = 1
+		}
+
+		if = {
+			limit = {
+				OR = {
+					AND = { exists = c:NGF
+					this = c:NGF }
+					AND = {
+						exists = c:GER
+						this = c:GER
+					}
+				}
+				scope:target_country = {
+					owns_entire_state_region = STATE_ALSACE_LORRAINE
+				}
+			}
+			add = 0.5
 		}		
 
 		# Ethiopian Thunderdome
@@ -763,6 +780,24 @@ ai_strategy_default = {
 			}
 			add = 100
 		}
+
+
+		if = {
+			limit = {
+				OR = {
+					AND = { exists = c:NGF
+					this = c:NGF }
+					AND = {
+						exists = c:GER
+						this = c:GER
+					}
+				}
+				scope:target_country = {
+					owns_entire_state_region = STATE_ALSACE_LORRAINE
+				}
+			}
+			add = 100
+			}
 
 		# Extra french aggression for Haiti renouncing debt payments
 		if = {
@@ -2167,6 +2202,20 @@ ai_strategy_default = {
 				}
 				add = 100			
 			}
+
+			if = {
+				limit = {	
+					OR = {
+						country_has_primary_culture = cu:north_italian	
+						country_has_primary_culture = cu:south_italian
+						country_has_primary_culture = cu:north_german	
+						country_has_primary_culture = cu:south_german	
+					}
+
+					is_subject_of = scope:target_country	
+				}
+				add = 100			
+			}
 			
 			multiply = {
 				value = "ai_ideological_opinion(scope:target_country)"
@@ -2478,6 +2527,23 @@ ai_strategy_default = {
 					}
 				}
 				add = 1000
+			}
+
+			if = {
+			limit = {
+				OR = {
+					AND = { exists = c:NGF
+					this = c:NGF }
+					AND = {
+						exists = c:GER
+						this = c:GER
+					}
+				}
+				scope:target_country = {
+					owns_entire_state_region = STATE_ALSACE_LORRAINE
+				}
+			}
+			add = 1000
 			}
 			
 			if = {
@@ -2966,6 +3032,7 @@ ai_strategy_default = {
 	wargoal_scores = {
 		conquer_state = {
 			value = 0
+			
 
 			if = {
 				limit = {
@@ -3219,7 +3286,7 @@ ai_strategy_default = {
 						multiply = 0.5
 					}
 				}
-			}				
+			}		
 
 			if = {
 				limit = {
@@ -3285,6 +3352,21 @@ ai_strategy_default = {
 					}
 				}
 				add = 50
+			}
+
+			if = {
+			limit = {
+				OR = {
+					AND = { exists = c:NGF
+					this = c:NGF }
+					AND = {
+						exists = c:GER
+						this = c:GER
+					}
+				}
+				scope:target_state.state_region = s:STATE_ALSACE_LORRAINE
+			}
+			add = 50
 			}
 
 			if = {
@@ -4518,6 +4600,18 @@ ai_strategy_default = {
 				}
 				multiply = 0.0
 			}
+			if = {
+				limit = {
+					scope:target_country = {
+						OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+						}
+					}
+				}
+
+				add = 300
+			}
 
 			if = {
 				limit = {
@@ -4539,7 +4633,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				add = 150
+				add = 300
 			}
 
 			min = 0

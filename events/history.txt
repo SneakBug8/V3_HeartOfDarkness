@@ -1,0 +1,640 @@
+namespace = history
+
+# Louis Napoleon
+history.1 = {
+	type = country_event
+	placement = ROOT
+
+    title = history.1.t
+	desc = history.1.d
+	flavor = history.1.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        year > 1845
+        exists = c:FRA
+        c:FRA = ROOT
+        is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		is_revolutionary = no
+
+        not = {
+            has_variable = luis_napoleon
+        }
+        }
+
+        option = {
+            default_option = yes
+            set_variable = luis_napoleon
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_autocracy
+
+        create_character = {
+	            first_name = Louis-Napoleon
+                last_name = Bonaparte
+                culture = cu:french
+                female = no
+                ruler = yes
+                religion = catholic
+                ideology = ideology_royalist
+                interest_group = ig_petty_bourgeoisie # Can be overriden by interest_group_leader_usage
+                birth_date = 1808.4.20
+                dna = dna_emperor_napoleon_03
+                traits = {
+                    ambitious demagogue
+                }
+			}
+        }
+
+        option = {
+            set_variable = luis_napoleon
+        }
+}
+
+# Hungarian uprising
+history.2 = {
+	type = country_event
+	placement = ROOT
+
+    title = history.2.t
+	desc = history.2.d
+	flavor = history.2.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        year > 1848
+        
+        c:HUN = {
+			is_subject_of = ROOT
+            is_player = no				
+        }
+
+        not = {
+            has_variable = hungarian_revolt
+        }
+        }
+
+        immediate = {
+            if = {
+                limit = {
+                    NOT = { exists = c:HUN }
+                }
+
+                random_scope_state = {
+                    limit = {
+                        state_region = {
+                            is_homeland = cu:hungarian
+                        }
+                    }
+
+                    save_scope_as = secession_state
+                }
+
+                create_country = {
+                        tag = HUN
+                        origin = this
+                        state = scope:secession_state
+                }
+
+                every_scope_state = {
+                limit = {
+                    state_region = {
+                        OR = {
+                            is_homeland = cu:hungarian
+                            this = s:STATE_CROATIA
+                            this = s:STATE_SLAVONIA
+                        }
+                    }
+                }
+
+                set_state_owner = c:HUN
+                }
+            }
+
+            create_diplomatic_pact = {
+                country = c:HUN
+                type = dominion
+            }
+
+            set_variable = hungarian_revolt
+        }
+
+        option = {
+            default_option = yes
+
+            create_diplomatic_play = {
+                target_country = c:HUN
+				type = dp_annex_war
+
+                add_war_goal = {
+                    holder = c:HUN
+                    type = independence
+                    target_country = ROOT
+                }
+
+            }
+
+            ai_chance = {
+			base = 1
+		    }
+        }
+
+        option = {
+            ai_chance = {
+			    base = 0
+		    }
+        }
+}
+
+# tsar_assasination
+history.3 = {
+	type = country_event
+	placement = ROOT
+
+    title = history.3.t
+	desc = history.3.d
+	flavor = history.3.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        year > 1860
+        exists = c:RUS
+        c:RUS = ROOT
+
+        not = {
+            has_variable = tsar_assasination
+        }
+        }
+
+        option = {
+            default_option = yes
+
+            ruler = {
+			    kill_character = yes
+            }
+
+            set_variable = tsar_assasination
+
+            create_character = {
+                ig_leader = yes
+                interest_group = ig_rural_folk
+                female = no
+                ideology = ideology_anarchist
+		    }
+        }
+}
+
+# paraguayan_war
+history.4 = {
+	type = country_event
+	placement = ROOT
+
+    title = history.4.t
+	desc = history.4.d
+	flavor = history.4.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        year > 1865
+        exists = c:PRG
+        c:PRG = ROOT
+
+        is_ai = yes
+
+        not = {
+            has_variable = paraguayan_war
+        }
+        }
+       
+
+        option = {
+            default_option = yes
+
+            set_variable = paraguayan_war
+
+            random_scope_state = {
+                limit = {
+                    NOT = {
+					has_building = building_barracks
+				    }
+                }
+                create_building={
+				building="building_barracks"
+				level=10
+				reserves=1
+			    }
+            }
+
+            create_diplomatic_play = {
+                target_country = c:ARG
+				type = dp_annex_war
+            }
+        }
+}
+
+
+# French Directory
+history.5 = {
+	type = country_event
+	placement = ROOT
+
+    title = history.1.t
+	desc = history.1.d
+	flavor = history.1.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        exists = c:FRA
+        c:FRA = ROOT
+		has_journal_entry = je_springtime_of_the_peoples
+        is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		is_revolutionary = no
+
+        not = {
+            has_variable = french_directory
+        }
+        }
+
+        option = {
+            default_option = yes
+            set_variable = french_directory
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_autocracy
+        }
+
+        option = {
+            set_variable = french_directory
+        }
+}
+
+# Filipino war
+history.6 = {
+	type = country_event
+	placement = ROOT
+
+    title = history.2.t
+	desc = history.2.d
+	flavor = history.2.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        year > 1890
+
+        OR = {
+            AND = {
+                NOT = {
+                exists = c:PHI
+                }
+                owns_entire_state_region = STATE_MANILA
+            }
+            c:PHI = {
+				is_subject_of = ROOT				
+            }
+        }
+
+        not = {
+            has_variable = philippines_war
+        }
+        }
+
+        immediate = {
+            if = {
+                limit = {
+                    NOT = { exists = c:PHI }
+                }
+
+                create_country = {
+                    tag = PHI
+                    origin = this
+                    state = s:STATE_MANILA.region_state:ROOT
+                }
+            }
+
+            every_scope_state = {
+                limit = {
+                    state_region = {
+                        OR = {
+                            is_homeland = cu:filipino
+                        }
+                    }
+                }
+
+                set_state_owner = c:PHI
+            }
+
+            create_diplomatic_pact = {
+                country = c:PHI
+                type = dominion
+            }
+
+            set_variable = philippines_war
+        }
+
+        option = {
+            default_option = yes
+
+            create_diplomatic_play = {
+                target_country = c:PHI
+				type = dp_annex_war
+
+                add_war_goal = {
+                    holder = c:PHI
+                    type = independence
+                    target_country = ROOT
+                }
+
+            }
+
+            ai_chance = {
+			base = 1
+		    }
+        }
+
+        option = {
+            ai_chance = {
+			    base = 0
+		    }
+        }
+}
+
+# Polish uprising 1863
+history.7 = {
+	type = country_event
+	placement = ROOT
+
+    title = history.2.t
+	desc = history.2.d
+	flavor = history.2.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        year > 1863
+
+        OR = {
+            AND = {
+                NOT = {
+                exists = c:POL
+                }
+                owns_entire_state_region = STATE_GREATER_POLAND
+            }
+            c:POL = {
+                is_player = no
+				is_subject_of = ROOT				
+            }
+        }
+
+        not = {
+            has_variable = poland_uprising
+        }
+        }
+
+        immediate = {
+            if = {
+                limit = {
+                    NOT = { exists = c:POL }
+                }
+
+                random_scope_state = {
+                    limit = {
+                        state_region = {
+                            is_homeland = cu:polish
+                        }
+                    }
+
+                    save_scope_as = secession_state
+                }
+
+                create_country = {
+                        tag = POL
+                        origin = this
+                        state = scope:secession_state
+                }
+            }
+
+            every_scope_state = {
+                limit = {
+                    state_region = {
+                        OR = {
+                            is_homeland = cu:polish
+                        }
+                    }
+                }
+
+                set_state_owner = c:POL
+            }
+
+            create_diplomatic_pact = {
+                country = c:POL
+                type = dominion
+            }
+
+            set_variable = poland_uprising
+        }
+
+        option = {
+            default_option = yes
+
+            create_diplomatic_play = {
+                target_country = c:POL
+				type = dp_annex_war
+
+                add_war_goal = {
+                    holder = c:POL
+                    type = independence
+                    target_country = ROOT
+                }
+
+            }
+
+            ai_chance = {
+			base = 1
+		    }
+        }
+
+        option = {
+            ai_chance = {
+			    base = 0
+		    }
+        }
+}
+
+# Irish rebellion of 1848
+history.8 = {
+	type = country_event
+	placement = ROOT
+
+    title = history.2.t
+	desc = history.2.d
+	flavor = history.2.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        year > 1848
+
+        OR = {
+            AND = {
+                NOT = {
+                exists = c:IRE
+                }
+                owns_entire_state_region = STATE_LEINSTER
+            }
+            c:IRE = {
+				is_subject_of = ROOT				
+            }
+        }
+
+        not = {
+            has_variable = irish_uprising
+        }
+        }
+
+        immediate = {
+            if = {
+                limit = {
+                    NOT = { exists = c:IRE }
+                }
+
+                random_scope_state = {
+                    limit = {
+                        state_region = {
+                            is_homeland = cu:irish
+                        }
+                    }
+
+                    save_scope_as = secession_state
+                }
+
+                create_country = {
+                        tag = IRE
+                        origin = this
+                        state = scope:secession_state
+                }
+            }
+
+            every_scope_state = {
+                limit = {
+                    state_region = {
+                        OR = {
+                            is_homeland = cu:irish
+                        }
+                    }
+                }
+
+                set_state_owner = c:IRE
+            }
+
+            create_diplomatic_pact = {
+                country = c:IRE
+                type = dominion
+            }
+
+            set_variable = irish_uprising
+        }
+
+        option = {
+            default_option = yes
+
+            create_diplomatic_play = {
+                target_country = c:IRE
+				type = dp_annex_war
+
+                add_war_goal = {
+                    holder = c:IRE
+                    type = independence
+                    target_country = ROOT
+                }
+
+            }
+
+            ai_chance = {
+			base = 1
+		    }
+        }
+
+        option = {
+            ai_chance = {
+			    base = 0
+		    }
+        }
+}

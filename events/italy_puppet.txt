@@ -21,13 +21,43 @@ italy_puppet.1 = {
 	duration = 3
 
 	trigger = {
-		exists = c:ITA
+        year > 1848
+
+		OR = {
+            AND = {
+                exists = c:ITA
+                c:ITA = {
+                    is_at_war = no
+                        has_technology_researched = nationalism
+                    }
+            }
+            AND = {
+                exists = c:SAR
+                c:SAR = {
+                    is_at_war = no
+
+                    has_technology_researched = nationalism
+                }
+            }
+            AND = {
+                exists = c:SIC
+                c:SIC = {
+                    is_at_war = no
+
+                    has_technology_researched = nationalism
+                    }
+            }
+        }
+
         any_scope_state = {
             state_region = {
                     OR = {
                     is_homeland = cu:north_italian
                     is_homeland = cu:south_italian
                     }
+                }
+                NOT = {
+                    owner = c:AUS
                 }
             }
 							
@@ -47,7 +77,37 @@ italy_puppet.1 = {
                     }
                 }
             }
-            set_state_owner = c:ITA
+
+            if = {
+                limit = {
+		            exists = c:ITA
+                    c:ITA = {
+                        has_technology_researched = nationalism
+                    }
+                }
+
+                set_state_owner = c:ITA
+            }
+            else_if = {
+                limit = {
+                    exists = c:SAR
+                    c:SAR = {
+                        has_technology_researched = nationalism
+                    }
+                }
+
+                set_state_owner = c:SAR
+            }
+            else_if = {
+                limit = {
+                    exists = c:SIC
+                    c:SIC = {
+                        has_technology_researched = nationalism
+                    }
+                }
+
+                set_state_owner = c:SIC
+            }
         }
 	}
 }
@@ -72,17 +132,24 @@ italy_puppet.2 = {
 	duration = 3
 
 	trigger = {
+        year > 1848
 		exists = c:PRU
         is_player = no
         is_subject = no
         is_at_war = no
-        any_scope_state = {
-            state_region = {
-                    is_homeland = cu:north_german
-                }
-            }
+        country_has_primary_culture = cu:north_german
+
+        NOT = {
+            ROOT = c:LUX
+        }
 							
             NOT = { country_rank = rank_value:great_power }
+
+		    c:PRU = {
+                    is_at_war = no
+                has_technology_researched = nationalism
+            }
+
         }
 
 	option = {

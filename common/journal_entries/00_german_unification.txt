@@ -430,6 +430,7 @@ je_south_german_unification = {
 		}
 		AND = {
 			is_ai = yes
+			exists = c:AUS
 			is_subject_of = c:AUS
 		}
 		}

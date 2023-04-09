@@ -1,0 +1,43 @@
+﻿je_portugal_united_kingdom = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+    is_shown_when_inactive = {
+        exists = c:POR
+        THIS = c:POR
+        is_subject = no
+    }
+      possible = {
+        any_scope_state = {
+            state_region = {
+                OR = {
+                    is_homeland = cu:brazilian
+                }
+            }
+        }
+
+        NOT = {
+            has_modifier = united_kingdom_bonus
+        }
+    }
+    complete = {
+        any_state = {
+            percent = 1
+
+            limit = {
+                state_region = {
+                        is_homeland = cu:brazilian
+                }
+
+            }
+
+                ROOT = {
+                    country_or_subject_owns_entire_state_region = PREV
+                }
+            }
+    }
+    on_complete = {
+        add_modifier = united_kingdom_bonus
+    }
+
+    weight = 1000
+    should_be_pinned_by_default = yes
+}

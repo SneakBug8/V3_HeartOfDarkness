@@ -5,5 +5,14 @@ on_yearly_pulse_country = {
         italy_puppet.1
         italy_puppet.2
         fdi.4
+        fdi.5
+        history.1
+        history.2
+        history.3
+        history.4
+        history.5
+        history.6
+        history.7
+        history.8
     }
 }

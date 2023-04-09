@@ -161,6 +161,8 @@ fdi.3 = {
 	type = country_event
 	placement = ROOT
 
+    title = fdi.3.t
+
 	event_image = {
 		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
 	}
@@ -176,6 +178,8 @@ fdi.3 = {
         }
 
         option = {
+            name = fdi.3.a
+
             random_state = {
                 limit = {
                     owner = scope:occupier
@@ -194,6 +198,8 @@ fdi.3 = {
 
 
         option = {
+            name = fdi.3.b
+
         }
 }
 
@@ -245,5 +251,50 @@ fdi.4 = {
 					type = dp_open_market
                 }
             }
+        }
+}
+
+
+fdi.5 = {
+	type = country_event
+	hidden = yes
+
+    immediate = {
+				hidden = yes
+
+            every_scope_state = {
+                remove_modifier = wonderful_harvest
+                remove_modifier = good_harvest
+                remove_modifier = poor_harvest 
+                remove_modifier = awful_harvest
+
+                random_list = {
+					10 = {
+                        add_modifier = {
+                            name = wonderful_harvest
+                            months = 12
+                        }
+                    }
+					40 = {
+                        add_modifier = {
+                            name = good_harvest
+                            months = 12
+                        }
+                    }
+					40 = {
+                        add_modifier = {
+                            name = poor_harvest
+                            months = 12
+                        }
+                    }
+					10 = {
+                        add_modifier = {
+                            name = awful_harvest
+                            months = 12
+                        }
+                    }
+				}
+            }
+            
         }
 }

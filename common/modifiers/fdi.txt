@@ -1,3 +1,94 @@
 fdi_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+
     country_construction_add = 5
+}
+
+sponsored_terrorism = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+
+    state_radicals_from_sol_change_mult = 0.25
+	state_mortality_turmoil_mult = 0.05
+	state_radicals_from_discrimination_mult = 1
+}
+
+sponsoring_terrorism = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+
+    country_infamy_decay_mult = -0.1
+}
+
+multiethnic_army = {
+	unit_morale_loss_mult = 0.25
+}
+
+carlist_legacy = {
+	building_unincorporated_throughput_add = 0.1
+}
+
+aztecs_gold = {
+	building_gold_fields_throughput_mult = 0.2
+	building_gold_mines_throughput_mult = 0.2
+}
+
+elan = {
+	unit_morale_loss_mult = -0.15
+}
+
+panslavic_empire = {
+	country_legitimacy_base_add = 10
+}
+
+wonderful_harvest = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+
+	building_group_bg_agriculture_throughput_mult = 0.5
+	building_group_bg_ranching_throughput_mult = 0.5
+	building_group_bg_plantations_throughput_mult = 0.5
+}
+
+good_harvest = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+
+	building_group_bg_agriculture_throughput_mult = 0.1
+	building_group_bg_ranching_throughput_mult = 0.1
+	building_group_bg_plantations_throughput_mult = 0.1
+}
+
+poor_harvest = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+
+	building_group_bg_agriculture_throughput_mult = -0.1
+	building_group_bg_ranching_throughput_mult = -0.1
+	building_group_bg_plantations_throughput_mult = -0.1
+}
+
+awful_harvest = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+
+	building_group_bg_agriculture_throughput_mult = -0.5
+	building_group_bg_ranching_throughput_mult = -0.5
+	building_group_bg_plantations_throughput_mult = -0.5
+
+	building_output_fruit_mult = -0.5
+	building_output_wine_mult = -0.5
+	building_output_wheat_mult = -0.5
+
+
+	building_output_sugar_mult = -0.5
+	building_output_silk_mult = -0.5
+
+	building_cotton_plantation_throughput_mult = -0.5
+	building_wheat_farm_throughput_mult = -0.5
+
+}
+
+mining_crash = {
+	building_throughput_mult = -0.5
+}
+
+united_kingdom_bonus = {
+	country_trade_route_competitiveness_mult = 0.25
+	country_trade_route_quantity_mult = 0.25
+	country_trade_route_cost_mult = -0.25
 }

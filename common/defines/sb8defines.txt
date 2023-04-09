@@ -11,6 +11,31 @@ NAI = {
 	DIPLO_PLAY_NEUTRALITY_FROM_DEVASTATION_LEVEL = 200 # At 100% devastation across the country (weighted by state population), add this amount of neutrality score
 	DIPLO_PLAY_NEUTRALITY_FROM_TURMOIL = 200 # At 100% turmoil across the country (weighted by state population), add this amount of neutrality score
 
+    DIPLO_PLAY_ATTITUDE_DISINTERESTED_FACTOR = 0
+	DIPLO_PLAY_ATTITUDE_DISINTERESTED_BACKER_FACTOR = 0
+	DIPLO_PLAY_ATTITUDE_CAUTIOUS_FACTOR = 0
+	DIPLO_PLAY_ATTITUDE_CAUTIOUS_BACKER_FACTOR = 0
+	DIPLO_PLAY_ATTITUDE_CONCILIATORY_FACTOR = 7
+	DIPLO_PLAY_ATTITUDE_CONCILIATORY_BACKER_FACTOR = 5
+	DIPLO_PLAY_ATTITUDE_COOPERATIVE_FACTOR = 10
+	DIPLO_PLAY_ATTITUDE_COOPERATIVE_BACKER_FACTOR = 5
+	DIPLO_PLAY_ATTITUDE_GENIAL_FACTOR = 20
+	DIPLO_PLAY_ATTITUDE_GENIAL_BACKER_FACTOR = 7
+	DIPLO_PLAY_ATTITUDE_WARY_FACTOR = -7
+	DIPLO_PLAY_ATTITUDE_WARY_BACKER_FACTOR = -5
+	DIPLO_PLAY_ATTITUDE_BELLIGERENT_FACTOR = -40
+	DIPLO_PLAY_ATTITUDE_BELLIGERENT_BACKER_FACTOR = -25
+	DIPLO_PLAY_ATTITUDE_ANTAGONISTIC_FACTOR = -40
+	DIPLO_PLAY_ATTITUDE_ANTAGONISTIC_BACKER_FACTOR = -20
+	DIPLO_PLAY_ATTITUDE_LOYAL_FACTOR = 80
+	DIPLO_PLAY_ATTITUDE_LOYAL_BACKER_FACTOR = 20
+	DIPLO_PLAY_ATTITUDE_REBELLIOUS_FACTOR = -80
+	DIPLO_PLAY_ATTITUDE_REBELLIOUS_BACKER_FACTOR = -40
+	DIPLO_PLAY_ATTITUDE_PROTECTIVE_FACTOR = 40
+	DIPLO_PLAY_ATTITUDE_PROTECTIVE_BACKER_FACTOR = 15
+	DIPLO_PLAY_ATTITUDE_DOMINEERING_FACTOR = -7
+	DIPLO_PLAY_ATTITUDE_DOMINEERING_BACKER_FACTOR = 0
+
     DIPLO_PLAY_BACK_DOWN_CHANCE_THRESHOLD = 10
     DIPLO_PLAY_SYMPATHY_ENEMY_OF_INFAMOUS_COUNTRY = 10
     DIPLO_PLAY_SYMPATHY_ENEMY_OF_NOTORIOUS_COUNTRY = 10
@@ -32,6 +57,14 @@ NPolitics = {
     REVOLUTION_SUPPORT_STATE_MULTIPLIER = 0.01
    -- IG_APPROVAL_FROM_LAW = 2 		
   --  IG_APPROVAL_FROM_LAW_STRONG_STANCE = 4 	
+
+  SECESSION_TURMOIL_CUTOFF = 0.4						# Turmoil requires for cultures to start secession
+	SECESSION_WEEKLY_BASE_CHANCE = 0.002				# weekly base chance for culture to start secession movement
+	SECESSION_WEEKLY_CHANCE_EXCESS_DIV = 100			# Excess turmoil is divided by this and used to increase chance for secession movements
+	MIN_POP_SIZE_TO_SECEDE = 100000						# Num pops (including dependents) needed for a secession movement to start
+	SECESSION_STATE_CUTOFF_PERCENT = 0.25				# Required pop percentage in State to be egligble for secession
+	SECESSION_TURMOIL_EXCESS_DIV = 1					# Excess turmoil is divided by this and used to increase secession movements
+	SECESSION_COOLDOWN_YEARS = 5
 }
 
 NEconomy = {
@@ -42,6 +75,7 @@ DEBT_SLAVERY_ENSLAVEMENT_RATE_PER_POP = 0.5
 DEBT_SLAVERY_MAX_STATE_SLAVE_FRACTION = 0.9 
 SLAVE_TRADE_SLAVES_PER_WEEK = 500
 TRADE_ROUTE_MAX_LEVEL = 1000
+GOODS_SHORTAGE_PENALTY_MAX = 1.0
 }
 NMilitary = {
     GENERAL_TRAVEL_PIXELS_TO_DAYS_SCALE = 0.06
@@ -70,9 +104,15 @@ NPops = {
 	MASS_MIGRATION_ORIGIN_MIN_TURMOIL = 0.2 #0.25			# Must have at least this much turmoil in cultural homelands to create a migration target
 	MASS_MIGRATION_TARGET_MAX_TURMOIL = 0.15 #0.2			# Must have this or less turmoil among the culture for a country to be picked as a mass migration target
     MASS_MIGRATION_COOLDOWN_MONTHS = 30					# How many months before the same culture can mass migrate from a country again
+
+	OBSESSION_SPAWN_CHANCE = 1.0				# Per year (1.0 = 1%), multiplied by goods supply and market size mult
+
 }
 
 NWar = {
     MAX_SIMULTANEOUS_BATTLES = 2                    # Allows to spawn up to MAX_SIMULTANEOUS_BATTLES as long as you have that many generals with advance orders.
 	PREFER_BATTLES_IN_UNIQUE_STATES = yes
+	DEVASTATION_INCREASE_RATE = 2.5 # Per day, scales with level of occupation
+	DEVASTATION_DECAY_RATE = -1.5 # Per day, when there are no occupations
+	DEVASTATION_FROM_BATTLES = 1.5 # For each battle
 }

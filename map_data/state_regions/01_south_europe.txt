@@ -787,10 +787,9 @@ STATE_SLOVENIA = {
     mine = "x31E041"
     wood = "x792B8A"
     arable_land = 25
-    arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" }
+    arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" "bg_silk_plantations"}
     capped_resources = {
-        bg_coal_mining = 60
-        bg_logging = 11
+        bg_logging = 15
     }
 }
 

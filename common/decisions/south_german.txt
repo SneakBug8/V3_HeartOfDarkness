@@ -38,3 +38,167 @@ has_journal_entry = je_sgf_aus
 		}		
 	}
 }
+
+mexico_crown_emperor = {
+	is_shown = {
+		exists = c:MEX
+		this = c:MEX
+		NOT = { has_variable = mexico_crowned_emperor }
+	}
+	possible = {
+		is_at_war = no
+		is_subject = no
+
+		exists = c:FRA
+		c:FRA = {
+				relations:root >= relations_threshold:amicable
+			}
+	}
+	when_taken = {
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+
+        create_character = {
+	            first_name = Maximilian
+                last_name = von_Habsburg
+                culture = cu:south_german
+                female = no
+                ruler = yes
+                religion = catholic
+                ideology = ideology_royalist
+                interest_group = ig_landowners
+                birth_date = 1832.7.06
+                traits = {
+                    ambitious demagogue
+                }
+			}
+
+		c:FRA = {
+			create_diplomatic_pact = {
+                country = c:MEX
+                type = protectorate
+            }
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+
+portugal_return_brazil = {
+	is_shown = {
+		exists = c:POR
+		this = c:POR
+
+		exists = c:BRZ
+
+		NOT = { has_variable = portugal_unification_war }
+	}
+	possible = {
+		is_at_war = no
+	}
+	when_taken = {
+		set_variable = portugal_unification_war
+		create_diplomatic_play = {
+                target_country = c:BRZ
+				type = dp_annex_war
+        }
+		hidden_effect = { #Why? Because the Taiping Rebellion play grants an insane amount of infamy.
+				change_infamy = -150
+			}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+
+portugal_peaceful_reunification = {
+	is_shown = {
+		exists = c:POR
+		this = c:POR
+
+		exists = c:BRZ
+
+		NOT = { has_variable = portugal_unification_war }
+	}
+	possible = {
+		is_at_war = no
+
+		c:BRZ.relations:root >= 60
+	}
+	when_taken = {
+		set_variable = portugal_unification_war
+		
+		c:BRZ = {
+			every_scope_state = {
+				set_state_owner = c:POR
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+brazil_return_to_europe = {
+	is_shown = {
+		exists = c:BRZ
+		this = c:BRZ
+
+		exists = c:POR
+
+		NOT = { has_variable = portugal_unification_war }
+	}
+	possible = {
+		is_at_war = no
+	}
+	when_taken = {
+		set_variable = portugal_unification_war
+		create_diplomatic_play = {
+                target_country = c:POR
+				type = dp_annex_war
+        }
+		hidden_effect = { #Why? Because the Taiping Rebellion play grants an insane amount of infamy.
+				change_infamy = -150
+			}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+
+brazil_peaceful_reunification = {
+	is_shown = {
+		exists = c:BRZ
+		this = c:BRZ
+
+		exists = c:POR
+
+		NOT = { has_variable = portugal_unification_war }
+	}
+	possible = {
+		is_at_war = no
+
+		c:POR.relations:root >= 60
+	}
+	when_taken = {
+		set_variable = portugal_unification_war
+		
+		c:POR = {
+			every_scope_state = {
+				set_state_owner = c:BRZ
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}

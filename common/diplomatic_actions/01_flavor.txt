@@ -222,3 +222,211 @@ occupy_split = {
 		}
 	}
 }
+
+
+occupy_full = {
+	requires_approval = no
+	should_notify_third_parties = yes
+	show_effect_in_tooltip = yes
+
+	potential = {
+		is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		is_revolutionary = no
+		scope:target_country = {
+			is_revolutionary = no
+		}
+		NOT = { is_country_type = decentralized }
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+		}
+	}
+	
+	possible = {
+		is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		is_revolutionary = no
+		scope:target_country = {
+			is_revolutionary = no
+		}
+
+		NOT = {
+			has_variable = occupiedcountry
+		}
+		NOT = { is_country_type = decentralized }
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+		}
+
+		scope:target_country = {
+			any_scope_state = {
+				any_neighbouring_state = {
+					OR = {
+						owner = ROOT
+						owner = { is_subject_of = ROOT }
+					}
+				}
+			}
+		}
+	}
+	
+	accept_effect = {
+        change_infamy = 25
+
+		set_variable = { name = occupiedcountry days = 365 } 
+
+		save_scope_as = occupier
+
+		scope:target_country = {
+			random_scope_state = {
+				limit = {
+					any_neighbouring_state = {
+						OR = {
+						owner = ROOT
+						owner = { is_subject_of = ROOT }
+					}
+					}
+				}
+
+				state_region = {
+                	add_claim = scope:target_country
+                	add_claim = scope:target_country.top_overlord
+
+					save_scope_as = captured_state_region
+            	}
+
+				scope:target_country.top_overlord = {
+					save_scope_as = enemy
+				}
+
+            	set_state_owner = ROOT
+				save_scope_as = to_be_captured
+
+				scope:target_country.top_overlord = {
+						trigger_event = { id = fdi.3
+						days = 1}
+					}
+				}
+			}
+
+		change_relations = {
+		country = scope:target_country
+		value = -100
+		}
+		
+	}
+	
+	ai = {
+		will_propose = { 
+			always = no
+		}
+	}
+}
+
+
+sponsor_terrorism = {
+	requires_approval = no
+	should_notify_third_parties = yes
+	show_effect_in_tooltip = no
+
+	potential = {
+		NOT = { is_country_type = decentralized }
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+		}
+		OR = {
+			is_player = yes
+			AND = {
+			country_rank > rank_value:major_power 
+			weekly_net_fixed_income > 10000
+
+			OR = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}
+				has_attitude = {
+					who = scope:target_country
+					attitude = belligerent
+				}
+				"relations(scope:target_country)" <= -30
+				}
+			}
+		}
+	}
+	
+	possible = {
+		gold_reserves > 500000
+		has_interest_marker_in_region = scope:target_country.capital.region
+		NOT = { has_modifier = sponsoring_terrorism }
+	}
+	
+	accept_effect = {
+		add_treasury = -500000
+		scope:target_country = {
+			add_modifier = {
+				name = sponsored_terrorism
+				months = 36
+			}
+		}
+
+			add_modifier = {
+				name = sponsoring_terrorism
+				months = 36
+			}
+
+		change_relations = {
+			country = scope:target_country
+			value = -10
+		}
+	}
+	
+	ai = {
+		will_propose = { 
+			always = yes
+		}
+	}
+}
+
+force_open_borders = {
+	requires_approval = no
+	should_notify_third_parties = no
+	show_effect_in_tooltip = no
+
+	potential = {
+		NOT = { is_country_type = decentralized }
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+		}
+		is_player = yes
+	}
+	
+	possible = {
+		is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		is_revolutionary = no
+		scope:target_country = {
+			is_subject_of = ROOT
+			is_at_war = no
+			is_diplomatic_play_committed_participant = no
+			is_revolutionary = no
+
+			has_diplomatic_pact = {
+				who = ROOT
+				type = puppet
+			}
+		}
+	}
+	
+	accept_effect = {
+		scope:target_country = {
+			activate_law = law_type:law_no_migration_controls
+		}
+	}
+	
+	ai = {
+		will_propose = { 
+			always = no
+		}
+	}
+}

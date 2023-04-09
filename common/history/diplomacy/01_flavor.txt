@@ -17,6 +17,16 @@ DIPLOMACY = {
 		}
     }
 
+	c:POL = {
+		 every_state_region  = {
+                limit = {
+                    is_homeland = cu:polish
+                }
+				
+            add_claim = c:POL
+        }
+	}
+
 	c:MOL = {
         s:STATE_MOLDAVIA = {
 			add_claim = c:MOL
