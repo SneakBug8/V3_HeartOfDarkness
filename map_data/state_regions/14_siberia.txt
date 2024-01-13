@@ -47,8 +47,7 @@ STATE_TUVA = {
     arable_land = 40
     arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
     capped_resources = {
-        bg_iron_mining = 18
-        bg_logging = 14
+        bg_logging = 15
     }
 }
 

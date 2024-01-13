@@ -1016,6 +1016,18 @@ ITA = { # Italy
 			NOT = { exists = c:PAP }
 		}
 	}
+
+	dynamic_country_name = {
+		name = dyn_c_roman_republic
+
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			coa_def_republic_flag_trigger = yes
+			was_formed_from = PAP
+		}
+	}
 }
 
 JAP = { # Japan

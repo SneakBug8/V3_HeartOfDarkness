@@ -168,10 +168,10 @@ ai_strategy_resource_expansion = {
 	type = administrative	
 
 	building_group_weights = {
-		bg_rubber = 1.5
-		bg_oil_extraction = 1.5
-		bg_mining = 1.5
-		bg_logging = 1.5
+		bg_rubber = 2.0
+		bg_oil_extraction = 5.0
+		bg_mining = 2.5
+		bg_logging = 2.0
 	}
 	
 	subsidies = {
@@ -294,7 +294,7 @@ ai_strategy_industrial_expansion = {
 	}
 	
 	building_group_weights = {
-		bg_manufacturing = 1.25
+		bg_manufacturing = 2.0
 		bg_rubber = 1.25
 		bg_oil_extraction = 1.25
 		bg_mining = 1.25

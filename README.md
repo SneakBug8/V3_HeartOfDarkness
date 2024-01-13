@@ -9,7 +9,10 @@
 | Category  | Story                                                        | Status                      |
 | --------- | ------------------------------------------------------------ | --------------------------- |
 | Economy   | Foreign Direct investment diploaction. Gives 50000 investment pool for 1 year, expecting to 50500 to be returned. Provides 5 construction to a target country. Can be renewed taking only 500 investment from the goal. | Done                        |
-|           | Buffed slave trade<br />(500 slaves per week, stronged debt slavery) | Done                        |
+|           | Make plantation/agro economy cheaper to build<br />Ребаланс стоимости строительства домиков. Индустрия в разы дороже. | Hypothesis testing          |
+|           | Buffed slave trade<br />(500 slaves per week, stronger debt slavery) | Done                        |
+|           | Slavery gives 20% throughput to agricultural and plantations | Done                        |
+|           | Serfdom gives 20% throughput to mines and logging            |                             |
 |           | Bigger Gold reserves<br />(0.2 -> 0.3)                       | Done                        |
 |           | The maximum trade route level has been increased from 100 to 1000 levels. | Done                        |
 |           | Fix stockpiling gold by smaller AIs                          | Fine adjustment             |
@@ -24,7 +27,9 @@
 |           | Countries whose slavery got forcefully banned get 10% production tech bonus | Done                        |
 |           | Countries which got humiliated get 10% army tech bonus       | Done                        |
 |           | Random harvest mechanism<br />*Building’s throughput cannot be lower than 100%* | WIP                         |
+|           | Establishing global currency<br />Benefits for the leader, negative effects when country changes |                             |
 | Diplomacy | Diplomatic action to make puppet a dominion                  | Done                        |
+|           | Germany is formed with pan-nationalism tech instead of nationalism | Done                        |
 |           | AI is more willing to accept countries into alliance/defensive pact/customs union | Fine tuning                 |
 |           | Claims for Netherlands over Belgium                          | Done                        |
 |           | Claims for Turkey over Greece                                | Done                        |
@@ -38,16 +43,16 @@
 |           | Rebalanced AI’s agressivenes and willingless to conquer states<br />ИИ должен быть агрессивнее, но соблюдать стратегии и не лезть в рандомные авантюры (Австрия захватывает Бельгию или Индия Уругвай) | WIP                         |
 |           | Added a bunch of secret goals for conquest to carve up the world more | Done                        |
 |           | Decision to occupy split state (e.g. treaty port) before other party starts diploplay to return it | Done                        |
-|           | Decision to occupy full state before other party starts diploplay to return it |                             |
+|           | Decision to occupy full state before other party starts diploplay to return it | Done                        |
 |           | Kavour diplomacy decision for SAR (France join war against Austria in exchange for Nice and Savoy) | Done                        |
 |           | Ensure Canada can be formed without Oregon treaty            | Done                        |
 |           | Prussia can form Germany ~50% of the time<br />Prussia minors join Prussia after it researches nationalism | Done                        |
 |           | Italy forms 50% of the time<br />Italy minors join ITA/SAR/SIC after one researches nationalism | Done                        |
-|           | Germany wants STATE_ALSACE_LORRAINE                          | WIP                         |
+|           | Germany wants STATE_ALSACE_LORRAINE                          | Done                        |
 |           | Japan is opened up and gets Meiji restoration                | Done                        |
 |           | Wallachia and Moldavia unite                                 | Done                        |
 |           | US fulfills manifest destiny                                 | Done                        |
-|           | Nerf Austrian army before it reforms into Austro-Hungary     | Done                        |
+|           | Nerf Austrian army before it reforms into Austro-Hungary     | Discussion                  |
 |           | Hungary is subject of Austria at the start                   | Done                        |
 |           | Poland is subject of Russia at the start                     | Done                        |
 |           | Journal Entry for Spain to reconquer lost colonies in Latam  | WIP                         |
@@ -67,7 +72,11 @@
 |           | Hungarian revolt of 1848                                     | Done                        |
 |           | Polish revolt of 1863                                        | Done                        |
 |           | Irish revolt of 1848                                         | WIP                         |
-|           |                                                              |                             |
+|           | Bulgarian uprising of 1878                                   |                             |
+|           | Bosniak uprising of 1878                                     |                             |
+|           | Paraguayan war of 1865                                       |                             |
+|           | Events for internationals giving temporary buff to trade unions and a choice for a revolutionary to appear | WIP                         |
+|           | Croatian compromise: Austria and Hungary collectively create puppet Croatia | Done                        |
 
 ## Includes
 

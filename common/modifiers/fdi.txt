@@ -92,3 +92,63 @@ united_kingdom_bonus = {
 	country_trade_route_quantity_mult = 0.25
 	country_trade_route_cost_mult = -0.25
 }
+
+army_with_a_state = {
+	building_arms_industry_throughput_mult = 0.1
+	building_munition_plants_throughput_mult = 0.1
+	building_war_machine_industry_throughput_mult = 0.1
+}
+
+culture_school = {
+	building_arts_academy_throughput_mult = 0.1
+	building_university_throughput_mult = 0.1
+}
+
+adjancency_bonus = {
+	building_throughput_mult = 0.15
+}
+
+adjancency_bonus2 = {
+	building_throughput_mult = 0.3
+}
+
+italian_work_culture = {
+	interest_group_ig_trade_unions_pop_attraction_mult = 0.1
+}
+
+international_communists_meeting = {
+	interest_group_ig_trade_unions_pop_attraction_mult = 0.1
+}
+
+currency_leader = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+
+	country_minting_mult = 0.5
+	country_loan_interest_rate_mult = -0.25
+	country_gold_reserve_limit_mult = 0.25
+}
+
+currency_leader_change = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+
+	country_minting_mult = -0.5
+	country_loan_interest_rate_mult = 0.25
+	country_gold_reserve_limit_mult = -0.25
+}
+
+limited_war = {
+	state_conscription_rate_mult = -1
+}
+
+escalated_war = {
+	state_conscription_rate_mult = -0.5
+	country_opposition_ig_approval_add = -1
+	country_radicals_from_conquest_mult = 0.1
+	state_radicals_from_sol_change_mult = 0.1
+}
+
+unlimited_war = {
+	country_opposition_ig_approval_add = -2
+	country_radicals_from_conquest_mult = 0.2
+	state_radicals_from_sol_change_mult = 0.1
+}

@@ -9,7 +9,6 @@
     arable_land = 30
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" }
     capped_resources = {
-        bg_iron_mining = 24
         bg_lead_mining = 36
         bg_sulfur_mining = 80
     }
@@ -136,9 +135,8 @@ STATE_HINGGAN = { #RENAMED TO MONAN
     arable_land = 25
     arable_resources = { "bg_livestock_ranches" }
     capped_resources = {
-        bg_iron_mining = 36
         bg_lead_mining = 24
-        bg_logging = 6
+        bg_logging = 10
     }
 }
 

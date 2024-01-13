@@ -134,6 +134,11 @@ italy_puppet.2 = {
 	trigger = {
         year > 1848
 		exists = c:PRU
+
+        NOT = {
+            exists = c:GER
+            exists = c:NGF
+        }
         is_player = no
         is_subject = no
         is_at_war = no

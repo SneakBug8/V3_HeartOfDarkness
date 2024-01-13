@@ -210,3 +210,235 @@ inherit_claims = {
         }
     }
 }
+
+
+become_dominion = {
+    is_shown = {
+        is_player = yes
+        is_subject = yes
+    }
+
+    limit = {
+        is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		is_revolutionary = no
+
+		"relations(overlord)" >= relations_threshold:friendly
+        is_subject_type = puppet
+    }
+
+    when_taken = {
+        overlord = {
+            create_diplomatic_pact = {
+                country = ROOT
+                type = dominion
+            }
+        }
+    }
+}
+
+
+croatian_compromise = {
+    is_shown = {
+        exists = c:AUS
+        exists = c:HUN
+        OR = {
+            c:AUS = ROOT
+            c:HUN = ROOT
+            and = {
+                exists = c:CRO
+                c:CRO = ROOT
+            }
+        }
+        NOT = {has_variable = croatian_compromise}
+    }
+
+    limit = {
+       exists = c:AUS
+        exists = c:HUN
+        OR = {
+            c:AUS = ROOT
+            c:HUN = ROOT
+            and = {
+                exists = c:CRO
+                c:CRO = ROOT
+            }
+        }
+        c:HUN = {
+			is_subject_of = c:AUS
+        }
+        NOT = {has_variable = croatian_compromise}
+        is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		is_revolutionary = no
+    }
+
+    when_taken = {
+        set_variable = croatian_compromise
+
+        if = {
+            limit = {
+                NOT = { exists = c:CRO }
+            }
+
+            random_scope_state = {
+            limit = {
+                state_region = {
+                    OR = {
+                        this = s:STATE_DALMATIA
+                        this = s:STATE_CROATIA
+                        this = s:STATE_SLAVONIA
+                    }
+                }
+            }
+
+                save_scope_as = secession_state
+            }
+
+            create_country = {
+                    tag = CRO
+                    origin = this
+                    state = scope:secession_state
+            }
+        }
+        
+        every_state = {
+            limit = {
+                state_region = {
+                    OR = {
+                        this = s:STATE_DALMATIA
+                        this = s:STATE_CROATIA
+                        this = s:STATE_SLAVONIA
+                    }
+                }
+            OR = {
+                owner = c:AUS
+                owner = c:HUN
+            }
+        }
+
+        set_state_owner = c:CRO
+        }
+
+        c:AUS = {
+            create_diplomatic_pact = {
+                country = c:CRO
+                type = puppet
+            }
+        }
+    }
+
+	ai_chance = {
+        base = 0
+        modifier = {
+			trigger = { 
+				OR = {
+                   c:HUN = {
+				        country_rank >= rank_value:major_power
+                   }
+                    c:AUS = {
+				        country_rank <= rank_value:major_power
+                   }
+                }
+			}
+			add = 5
+		}
+    }
+}
+
+
+escalate_war = 
+{
+    is_shown = {
+        has_modifier = limited_war
+    }
+
+    limit = {
+        is_at_war = yes
+       
+    }
+
+    when_taken = {
+        remove_modifier = limited_war
+        add_modifier = escalated_war
+    }
+
+	ai_chance = {
+        base = 0
+
+        modifier = {
+            trigger = {
+            any_scope_war = {
+                has_war_exhaustion = { target = ROOT value > 25 }
+                is_warleader = yes
+            }
+            }
+            add = 5
+        }
+
+        modifier = {
+            trigger = {
+            any_country = {
+                has_war_with = ROOT
+                country_rank > rank_value:major_power 
+            }
+            }
+            add = 5
+        }
+
+        modifier = {
+            trigger = {
+            any_scope_province = {
+                is_target_of_wargoal = yes
+                OR = 
+                {
+                    is_incorporated = yes
+                    is_homeland_of_country_cultures = RPPT
+                }
+            }
+            }
+            add = 5
+        }
+    }
+}
+
+
+unlimited_war = {
+    is_shown = {
+        has_modifier = escalated_war
+    }
+
+    limit = {
+        is_at_war = yes
+    }
+
+    when_taken = {
+        remove_modifier = escalated_war
+        add_modifier = unlimited_war
+    }
+
+	ai_chance = {
+        base = 1
+
+        modifier = {
+            trigger = {
+            any_scope_war = {
+                has_war_exhaustion = { target = ROOT value > 50 }
+                is_warleader = yes
+                num_casualties >= 10000 
+            }
+            }
+            add = 5
+        }
+
+        modifier = {
+            trigger = {
+            any_country = {
+                has_war_with = ROOT
+                country_rank > rank_value:major_power 
+            }
+            }
+            add = 5
+        }
+    }
+}

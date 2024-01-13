@@ -1,0 +1,32 @@
+namespace = escalation
+
+escalation.1 = {
+	type = country_event
+	placement = ROOT
+    hidden = yes
+
+	trigger = {
+        OR = {
+            NOT = {
+                has_modifier = limited_war
+            }
+            has_modifier = escalated_war
+            has_modifier = unlimited_war
+        }
+        is_at_war = no
+        is_country_type = recognized
+        }
+
+        immediate = {
+            if = {
+                limit = {
+                    NOT = {
+                        has_modifier = limited_war
+                    }
+                }
+                add_modifier = {name = limited_war}
+            }
+            remove_modifier = escalated_war
+            remove_modifier = unlimited_war
+        }
+}

@@ -260,7 +260,6 @@ fdi.5 = {
 	hidden = yes
 
     immediate = {
-				hidden = yes
 
             every_scope_state = {
                 remove_modifier = wonderful_harvest
@@ -294,7 +293,237 @@ fdi.5 = {
                         }
                     }
 				}
+
+
+                random_scope_building = {
+                    remove_modifier = adjancency_bonus
+                    remove_modifier = adjancency_bonus2
+
+                    if = {
+                        limit = {
+				            is_building_type = building_textile_mills
+                            state = {
+				                has_building = building_cotton_plantation
+                            }
+                        }
+                    }
+                }
+
+                is_building_type = building_food_industry
+					is_building_type = building_textile_mills
+					is_building_type = building_furniture_manufacturies
+					is_building_type = building_glassworks
+					is_building_type = building_tooling_workshops
+					is_building_type = building_paper_mills
+					is_building_type = building_chemical_plants
+					is_building_type = building_synthetics_plants
+					is_building_type = building_steel_mills
+					is_building_type = building_motor_industry
+					is_building_type = building_shipyards
+					is_building_type = building_war_machine_industry
+					is_building_type = building_electrics_industry
+					is_building_type = building_arms_industry
+					is_building_type = building_munition_plants
+					is_building_type = building_power_plant
             }
             
         }
 }
+
+
+fdi.6 = {
+	type = country_event
+	placement = ROOT
+
+    title = fdi.3.t
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        }
+
+    immediate = {
+        scope:target_country = {
+		every_scope_state = {
+			limit = {
+				any_neighbouring_state = {
+						OR = {
+						owner = ROOT
+						owner = { is_subject_of = ROOT }
+					}
+                }
+			}
+			if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_1 } } save_scope_as = transfer_state_suitable_state_1 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_2 } } save_scope_as = transfer_state_suitable_state_2 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_3 } } save_scope_as = transfer_state_suitable_state_3 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_4 } } save_scope_as = transfer_state_suitable_state_4 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_5 } } save_scope_as = transfer_state_suitable_state_5 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_6 } } save_scope_as = transfer_state_suitable_state_6 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_7 } } save_scope_as = transfer_state_suitable_state_7 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_8 } } save_scope_as = transfer_state_suitable_state_8 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_9 } } save_scope_as = transfer_state_suitable_state_9 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_10 } } save_scope_as = transfer_state_suitable_state_10 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_11 } } save_scope_as = transfer_state_suitable_state_11 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_12 } } save_scope_as = transfer_state_suitable_state_12 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_13 } } save_scope_as = transfer_state_suitable_state_13 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_14 } } save_scope_as = transfer_state_suitable_state_14 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_15 } } save_scope_as = transfer_state_suitable_state_15 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_16 } } save_scope_as = transfer_state_suitable_state_16 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_17 } } save_scope_as = transfer_state_suitable_state_17 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_18 } } save_scope_as = transfer_state_suitable_state_18 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_19 } } save_scope_as = transfer_state_suitable_state_19 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_20 } } save_scope_as = transfer_state_suitable_state_20 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_21 } } save_scope_as = transfer_state_suitable_state_21 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_22 } } save_scope_as = transfer_state_suitable_state_22 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_23 } } save_scope_as = transfer_state_suitable_state_23 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_24 } } save_scope_as = transfer_state_suitable_state_24 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_25 } } save_scope_as = transfer_state_suitable_state_25 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_26 } } save_scope_as = transfer_state_suitable_state_26 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_27 } } save_scope_as = transfer_state_suitable_state_27 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_28 } } save_scope_as = transfer_state_suitable_state_28 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_29 } } save_scope_as = transfer_state_suitable_state_29 } else = { if = { limit = { NOT = { exists = scope:transfer_state_suitable_state_30 } } save_scope_as = transfer_state_suitable_state_30 } else = { } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } 
+		}
+        }
+	}
+
+	option = { name = "[SCOPE.sState('transfer_state_suitable_state_1').GetName]" trigger = { exists = scope:transfer_state_suitable_state_1 } scope:transfer_state_suitable_state_1 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_2').GetName]" trigger = { exists = scope:transfer_state_suitable_state_2 } scope:transfer_state_suitable_state_2 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_3').GetName]" trigger = { exists = scope:transfer_state_suitable_state_3 } scope:transfer_state_suitable_state_3 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_4').GetName]" trigger = { exists = scope:transfer_state_suitable_state_4 } scope:transfer_state_suitable_state_4 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_5').GetName]" trigger = { exists = scope:transfer_state_suitable_state_5 } scope:transfer_state_suitable_state_5 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_6').GetName]" trigger = { exists = scope:transfer_state_suitable_state_6 } scope:transfer_state_suitable_state_6 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_7').GetName]" trigger = { exists = scope:transfer_state_suitable_state_7 } scope:transfer_state_suitable_state_7 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_8').GetName]" trigger = { exists = scope:transfer_state_suitable_state_8 } scope:transfer_state_suitable_state_8 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_9').GetName]" trigger = { exists = scope:transfer_state_suitable_state_9 } scope:transfer_state_suitable_state_9 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_10').GetName]" trigger = { exists = scope:transfer_state_suitable_state_10 } scope:transfer_state_suitable_state_10 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_11').GetName]" trigger = { exists = scope:transfer_state_suitable_state_11 } scope:transfer_state_suitable_state_11 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_12').GetName]" trigger = { exists = scope:transfer_state_suitable_state_12 } scope:transfer_state_suitable_state_12 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_13').GetName]" trigger = { exists = scope:transfer_state_suitable_state_13 } scope:transfer_state_suitable_state_13 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_14').GetName]" trigger = { exists = scope:transfer_state_suitable_state_14 } scope:transfer_state_suitable_state_14 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_15').GetName]" trigger = { exists = scope:transfer_state_suitable_state_15 } scope:transfer_state_suitable_state_15 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_16').GetName]" trigger = { exists = scope:transfer_state_suitable_state_16 } scope:transfer_state_suitable_state_16 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_17').GetName]" trigger = { exists = scope:transfer_state_suitable_state_17 } scope:transfer_state_suitable_state_17 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_18').GetName]" trigger = { exists = scope:transfer_state_suitable_state_18 } scope:transfer_state_suitable_state_18 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_19').GetName]" trigger = { exists = scope:transfer_state_suitable_state_19 } scope:transfer_state_suitable_state_19 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_20').GetName]" trigger = { exists = scope:transfer_state_suitable_state_20 } scope:transfer_state_suitable_state_20 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_21').GetName]" trigger = { exists = scope:transfer_state_suitable_state_21 } scope:transfer_state_suitable_state_21 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_22').GetName]" trigger = { exists = scope:transfer_state_suitable_state_22 } scope:transfer_state_suitable_state_22 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_23').GetName]" trigger = { exists = scope:transfer_state_suitable_state_23 } scope:transfer_state_suitable_state_23 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_24').GetName]" trigger = { exists = scope:transfer_state_suitable_state_24 } scope:transfer_state_suitable_state_24 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_25').GetName]" trigger = { exists = scope:transfer_state_suitable_state_25 } scope:transfer_state_suitable_state_25 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_26').GetName]" trigger = { exists = scope:transfer_state_suitable_state_26 } scope:transfer_state_suitable_state_26 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_27').GetName]" trigger = { exists = scope:transfer_state_suitable_state_27 } scope:transfer_state_suitable_state_27 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_28').GetName]" trigger = { exists = scope:transfer_state_suitable_state_28 } scope:transfer_state_suitable_state_28 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_29').GetName]" trigger = { exists = scope:transfer_state_suitable_state_29 } scope:transfer_state_suitable_state_29 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes } } option = { name = "[SCOPE.sState('transfer_state_suitable_state_30').GetName]" trigger = { exists = scope:transfer_state_suitable_state_30 } scope:transfer_state_suitable_state_30 = { save_scope_as = transfer_state_chosen_state } trigger_event = { id = fdi.7 popup = yes }}
+
+	option = {
+		name = CANCEL
+		default_option = yes
+	}
+}
+
+
+fdi.7 = {
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	# hidden = yes
+
+	trigger = {
+        }
+
+    option = {
+        change_infamy = 25
+        set_variable = { name = occupiedcountry days = 365 }
+
+        change_relations = {
+        country = scope:target_country
+        value = -100
+        }
+
+        scope:transfer_state_chosen_state = {
+            state_region = {
+                add_claim = scope:target_country
+                add_claim = scope:target_country.top_overlord
+
+                save_scope_as = captured_state_region
+            }
+
+            scope:target_country.top_overlord = {
+                save_scope_as = enemy
+            }
+
+            set_state_owner = ROOT
+            save_scope_as = to_be_captured
+
+            scope:target_country.top_overlord = {
+                trigger_event = { id = fdi.3
+                days = 1}
+            }
+        }
+    }
+}
+
+# Become global currency leader
+fdi.8 = {
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+
+	trigger = {
+        global_country_ranking <= 1
+
+        not = {
+            has_variable = currency_leader
+        }
+        not = {
+            has_variable = currency_leader_declined
+        }
+    }
+
+    option = {
+        every_country = {
+            limit = {
+                OR = {
+                    has_modifier = currency_leader
+                    has_variable = currency_leader
+                    has_variable = currency_leader_declined
+                }
+            }
+            remove_modifier = currency_leader
+            remove_variable = currency_leader
+            remove_variable = currency_leader_declined
+        }
+
+        every_country = {
+            limit = {
+                NOT = {
+                    has_law = law_type:law_isolationism
+                }
+
+                is_country_type = recognized
+                NOT = {
+                    THIS = ROOT
+                }
+            }
+
+                trigger_event = { id = fdi.9 popup = yes }
+        }
+
+        set_variable = currency_leader
+        add_modifier = {
+            name = currency_leader
+        }
+
+        ai_chance = {
+			    base = 1
+		    }
+    }
+
+    option = {
+        set_variable = currency_leader_declined
+
+        ai_chance = {
+			    base = 0
+		    }
+    }
+}
+
+# Change in global currency leader
+fdi.9 = {
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	# hidden = yes
+
+	trigger = {
+        }
+
+    option = {
+        add_modifier = {
+            name = currency_leader_change
+            months = 12
+        }
+    }
+}
+

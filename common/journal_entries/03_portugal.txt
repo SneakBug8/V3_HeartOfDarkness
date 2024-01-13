@@ -22,16 +22,16 @@
         any_state = {
             percent = 1
 
-            limit = {
-                state_region = {
+            OR = {
+                NOT = {
+                    state_region = {
                         is_homeland = cu:brazilian
+                    }
                 }
-
-            }
-
                 ROOT = {
                     country_or_subject_owns_entire_state_region = PREV
                 }
+            }
             }
     }
     on_complete = {

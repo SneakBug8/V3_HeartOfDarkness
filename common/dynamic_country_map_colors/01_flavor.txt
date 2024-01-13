@@ -1,0 +1,65 @@
+﻿#
+# Note: the triggers are checked at certain key points in the code, not all the time
+# color_key = {
+#    color = "black"      # the map color
+#    possible = { ... }   # the trigger to enable this color
+# }
+#
+
+# Example
+#dynamic_map_color_swedish_junta = {
+#    color = "black"
+#	
+#	possible = {
+#		exists = c:SWE # you /must/ check that a tag exists before doing anything else
+#		this = c:SWE
+#
+#        exists = ig:ig_armed_forces
+#        ig:ig_armed_forces = {
+#            is_in_government = yes
+#        }
+#	}
+#}
+
+turkey = {
+	color = "roman_red"
+
+	possible = {
+		AND = {
+			exists = c:TUR
+			THIS = c:TUR
+		}
+		OR = {
+			has_law = law_type:law_parliamentary_republic
+			has_law = law_type:law_presidential_republic
+			has_law = law_type:law_council_republic
+		}
+	}
+}
+
+
+roman_rome = {
+	color = "roman_red"
+
+	possible = {
+		exists = c:ITA
+		THIS = c:ITA
+		OR = {
+			has_law = law_type:law_parliamentary_republic
+			has_law = law_type:law_presidential_republic
+			has_law = law_type:law_council_republic
+		}
+		was_formed_from = PAP
+	}
+}
+
+papal_italy = {
+	color = "yellow"
+
+	possible = {
+		exists = c:ITA
+		THIS = c:ITA
+		has_law = law_type:law_theocracy
+		was_formed_from = PAP
+	}
+}

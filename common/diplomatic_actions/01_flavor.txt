@@ -271,49 +271,11 @@ occupy_full = {
 	}
 	
 	accept_effect = {
-        change_infamy = 25
-
-		set_variable = { name = occupiedcountry days = 365 } 
+         
 
 		save_scope_as = occupier
 
-		scope:target_country = {
-			random_scope_state = {
-				limit = {
-					any_neighbouring_state = {
-						OR = {
-						owner = ROOT
-						owner = { is_subject_of = ROOT }
-					}
-					}
-				}
-
-				state_region = {
-                	add_claim = scope:target_country
-                	add_claim = scope:target_country.top_overlord
-
-					save_scope_as = captured_state_region
-            	}
-
-				scope:target_country.top_overlord = {
-					save_scope_as = enemy
-				}
-
-            	set_state_owner = ROOT
-				save_scope_as = to_be_captured
-
-				scope:target_country.top_overlord = {
-						trigger_event = { id = fdi.3
-						days = 1}
-					}
-				}
-			}
-
-		change_relations = {
-		country = scope:target_country
-		value = -100
-		}
-		
+		trigger_event = { id = fdi.6 popup = yes }
 	}
 	
 	ai = {

@@ -21,7 +21,7 @@ history.1 = {
 	duration = 3
 
 	trigger = {
-        year > 1845
+        year >= 1850
         exists = c:FRA
         c:FRA = ROOT
         is_at_war = no
@@ -54,10 +54,18 @@ history.1 = {
                     ambitious demagogue
                 }
 			}
+
+            ai_chance = {
+			    base = 1
+		    }
         }
 
         option = {
             set_variable = luis_napoleon
+
+            ai_chance = {
+			    base = 0
+		    }
         }
 }
 
@@ -82,11 +90,10 @@ history.2 = {
 	duration = 3
 
 	trigger = {
-        year > 1848
+        year >= 1848
         
         c:HUN = {
 			is_subject_of = ROOT
-            is_player = no				
         }
 
         not = {
@@ -187,7 +194,7 @@ history.3 = {
 	duration = 3
 
 	trigger = {
-        year > 1860
+        year >= 1861
         exists = c:RUS
         c:RUS = ROOT
 
@@ -235,7 +242,7 @@ history.4 = {
 	duration = 3
 
 	trigger = {
-        year > 1865
+        year >= 1865
         exists = c:PRG
         c:PRG = ROOT
 
@@ -311,10 +318,18 @@ history.5 = {
             set_variable = french_directory
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_autocracy
+
+        ai_chance = {
+			    base = 1
+		    }
         }
 
         option = {
             set_variable = french_directory
+
+            ai_chance = {
+			    base = 0
+		    }
         }
 }
 
@@ -339,7 +354,7 @@ history.6 = {
 	duration = 3
 
 	trigger = {
-        year > 1890
+        year >= 1890
 
         OR = {
             AND = {
@@ -439,7 +454,7 @@ history.7 = {
 	duration = 3
 
 	trigger = {
-        year > 1863
+        year >= 1863
 
         OR = {
             AND = {
@@ -550,7 +565,7 @@ history.8 = {
 	duration = 3
 
 	trigger = {
-        year > 1848
+        year >= 1848
 
         OR = {
             AND = {
@@ -635,6 +650,312 @@ history.8 = {
         option = {
             ai_chance = {
 			    base = 0
+		    }
+        }
+}
+
+
+# Bulgarian uprising
+history.9 = {
+	type = country_event
+	placement = ROOT
+
+    title = history.2.t
+	desc = history.2.d
+	flavor = history.2.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        year >= 1878
+
+        not = {
+            exists = c:BUL
+        }
+        
+        not = {
+            has_variable = bulgarian_revolt
+        }
+        }
+
+        immediate = {
+
+            random_scope_state = {
+                limit = {
+                    state_region = {
+                        is_homeland = cu:bulgarian
+                    }
+                }
+
+                save_scope_as = secession_state
+            }
+
+                create_country = {
+                        tag = BUL
+                        origin = this
+                        state = scope:secession_state
+                }
+
+                every_scope_state = {
+                limit = {
+                    state_region = {
+                        is_homeland = cu:bulgarian
+                    }
+                }
+
+                set_state_owner = c:BUL
+                }
+
+            create_diplomatic_pact = {
+                country = c:BUL
+                type = dominion
+            }
+
+            set_variable = bulgarian_revolt
+        }
+
+        option = {
+            default_option = yes
+
+            create_diplomatic_play = {
+                target_country = c:BUL
+				type = dp_annex_war
+
+                add_war_goal = {
+                    holder = c:BUL
+                    type = independence
+                    target_country = ROOT
+                }
+
+            }
+
+            ai_chance = {
+			base = 1
+		    }
+        }
+
+        option = {
+            ai_chance = {
+			    base = 0
+		    }
+        }
+}
+
+
+# Bosnian uprising
+history.10 = {
+	type = country_event
+	placement = ROOT
+
+    title = history.2.t
+	desc = history.2.d
+	flavor = history.2.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        year >= 1878
+
+        not = {
+            exists = c:BOS
+        }
+        
+        not = {
+            has_variable = bosnian_revolt
+        }
+        }
+
+        immediate = {
+
+            random_scope_state = {
+                limit = {
+                    state_region = {
+                        is_homeland = cu:bosniak
+                    }
+                }
+
+                save_scope_as = secession_state
+            }
+
+                create_country = {
+                        tag = BOS
+                        origin = this
+                        state = scope:secession_state
+                }
+
+                every_scope_state = {
+                limit = {
+                    state_region = {
+                        is_homeland = cu:bosniak
+                    }
+                }
+
+                set_state_owner = c:BOS
+                }
+
+            create_diplomatic_pact = {
+                country = c:BOS
+                type = dominion
+            }
+
+            set_variable = bosnian_revolt
+        }
+
+        option = {
+            default_option = yes
+
+            create_diplomatic_play = {
+                target_country = c:BOS
+				type = dp_annex_war
+
+                add_war_goal = {
+                    holder = c:BOS
+                    type = independence
+                    target_country = ROOT
+                }
+
+            }
+
+            ai_chance = {
+			base = 1
+		    }
+        }
+
+        option = {
+            ai_chance = {
+			    base = 0
+		    }
+        }
+}
+
+
+# International
+history.11 = {
+	type = country_event
+	placement = ROOT
+
+    title = history.11.t
+	desc = history.11.d
+	flavor = history.11.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        any_country = {
+		    has_technology_researched = socialism
+        }
+        is_country_type = recognized
+        OR = {
+            AND = {
+                year >= 1864
+                not = {
+                    has_variable = first_international
+                }
+            }
+            AND = {
+                year >= 1889
+                not = {
+                    has_variable = second_international
+                }
+            }
+            AND = {
+                year >= 1919
+                not = {
+                    has_variable = third_international
+                }
+            }
+        }
+        }
+
+        immediate = {
+            if = {
+                limit = {
+                    not = {
+                        has_variable = first_international
+                    }
+                }
+                set_variable = first_international
+            }
+            else_if = {
+                limit = {
+                    not = {
+                        has_variable = second_international
+                    }
+                }
+                set_variable = second_international
+            }
+            else_if = {
+                limit = {
+                    not = {
+                        has_variable = third_international
+                    }
+                }
+                set_variable = third_international
+            }
+        }
+
+        option = {
+            default_option = yes
+            name = history.11.a
+
+            add_modifier = {
+                name = international_communists_meeting
+                months = 24
+            }
+
+            create_character = {
+					ig_leader = yes
+					interest_group = ig_trade_unions
+					female = no
+					ideology = ideology_communist
+					traits = {
+						direct
+						persistent
+					}
+			}
+
+            ai_chance = {
+			    base = 1
+		    }
+        }
+
+        option = {
+            name = history.11.b
+
+            add_modifier = {
+                name = international_communists_meeting
+                months = 24
+            }
+
+            ai_chance = {
+			    base = 10
 		    }
         }
 }

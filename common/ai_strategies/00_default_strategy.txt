@@ -581,13 +581,24 @@ ai_strategy_default = {
 			add = 0.5
 		}
 
-		if = {
+		if = { 
 			limit = {
-				country_is_in_south_america = yes
+				scope:target_country = {
+					is_subject = yes
+				}
 			}
-			add = 0.5
+			divide = 2
 		}
 
+		if = { 
+			limit = {
+				scope:target_country = {
+					is_junior_in_customs_union = yes
+				}
+			}
+			divide = 2
+		}
+		
 		if = { 
 			limit = {
 				scope:target_country = {
@@ -4053,6 +4064,16 @@ ai_strategy_default = {
 				multiply = 1.5
 			}	
 
+			if = {
+				limit = {
+					country_rank >= rank_value:great_power
+					scope:target_country = {
+						country_rank >= rank_value:major_power
+					}
+				}
+				multiply = 0
+			}
+
 			min = 0
 			max = 100			
 		}
@@ -4235,6 +4256,16 @@ ai_strategy_default = {
 					lenient_ai_behavior_trigger = yes
 				}
 				multiply = 0.5
+			}
+
+			if = {
+				limit = {
+					country_rank >= rank_value:great_power
+					scope:target_country = {
+						country_rank >= rank_value:major_power
+					}
+				}
+				multiply = 0
 			}
 
 			min = 0

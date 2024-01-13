@@ -664,6 +664,7 @@ STATE_WEST_SLOVAKIA = {
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" }
     capped_resources = {
         bg_coal_mining = 44
+        bg_iron_mining = 15
         bg_logging = 15
     }
 }
@@ -680,6 +681,7 @@ STATE_EAST_SLOVAKIA = {
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" }
     capped_resources = {
         bg_coal_mining = 92
+        bg_iron_mining = 15
         bg_lead_mining = 33
         bg_logging = 15
     }
