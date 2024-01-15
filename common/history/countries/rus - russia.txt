@@ -22,20 +22,10 @@
 			set_ig_suppression = yes
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_russian_patriarch
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_gentry_assembly
-		}
-
 		create_diplomatic_pact = {
                 country = c:POL
-                type = puppet
-                # type = personal_union
+                # type = puppet
+                type = personal_union
 
             }
 	}

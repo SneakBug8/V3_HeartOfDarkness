@@ -1,6 +1,8 @@
 ﻿je_dual_monarchy = {
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
+	group = je_group_historical_content
+
 	complete = {
 		cu:hungarian = {
 			NOT = { culture_is_discriminated_in = ROOT }
@@ -11,8 +13,9 @@
 		trigger_event = {
 			id = dual_monarchy.1
 		}
-
-		remove_modifier = multiethnic_army
+		trigger_event = {
+			id = sgf_aus.3
+		}
 	}
 
 	fail = {
@@ -29,13 +32,12 @@
 		trigger_event = {
 			id = dual_monarchy.1
 		}
-
-		remove_modifier = multiethnic_army
 	}
 
 	invalid = {
 		OR = {
-			custom_tooltip = {
+			AND = {
+				custom_tooltip = {
 				text = austria_hunary_invalid
 				NOT = {
 					any_scope_state = {
@@ -43,6 +45,10 @@
 							is_homeland = cu:hungarian
 						}
 					}
+				}
+				}
+				c:HUN = {
+					NOT = { is_subject_of = c:AUS }
 				}
 			}
 			NOT = {

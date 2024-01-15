@@ -56,7 +56,7 @@ sgf_aus.2 = {
 
 	title = sgf_aus.2.t
 	desc = sgf_aus.2.d
-	flavor = sgf_aus.1.f
+	flavor = sgf_aus.2.f
 
 	event_image = {
 		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
@@ -112,5 +112,39 @@ sgf_aus.2 = {
 				annex = scope:sgf_scope_1
 			}
 		}
+	}
+}
+
+sgf_aus.3 = {
+	type = country_event
+	placement = ROOT
+
+	title = sgf_aus.3.t
+	desc = sgf_aus.3.d
+	flavor = sgf_aus.3.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+		
+	}
+
+	option = {
+		name = sgf_aus.3.a
+		default_option = yes
+		
+		annex = c:HUN
 	}
 }

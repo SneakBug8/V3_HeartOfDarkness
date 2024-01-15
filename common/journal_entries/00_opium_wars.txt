@@ -1,6 +1,11 @@
 ﻿je_opium_obsession = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
+	group = je_group_internal_affairs
+
+	scripted_button = ban_opium_button
+	scripted_button = unban_opium_button
+
 	on_monthly_pulse = {
 		random_events = {
 			100 = 0
@@ -59,7 +64,6 @@
 	}
 
 	on_fail = {
-		remove_variable = opium_wars_target
 		trigger_event = {
 			id = opium_wars.4
 		}
@@ -72,6 +76,22 @@
 	goal_add_value = {
 		add = 60
 	}
+	
+    timeout = 3650
+    on_timeout = {
+		hidden_effect = { remove_modifier = opium_wars_addiction_modifier }
+		add_modifier = {
+			name = opium_wars_addiction_modifier
+			months = long_modifier_time
+		}
+		add_radicals = {
+			value = large_radicals
+		}		
+		if = {
+			limit = { has_journal_entry = je_warlord_china }
+			chi_remove_1_fragile_unity = yes
+		}	
+    }	
 
 	progressbar = yes
 
@@ -82,6 +102,8 @@
 je_opium_wars = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
+	group = je_group_foreign_affairs
+	
 	complete = {
 		any_scope_state = {
 			is_treaty_port = yes
@@ -91,25 +113,23 @@ je_opium_wars = {
 				}
 			}
 		}
-		scope:target = {
-			NOT = {
-				has_journal_entry = je_opium_obsession
-			}
-		}
 	}
 
 	on_complete = {
-		remove_variable = opium_wars_aggressor
 		trigger_event = {
 			id = opium_wars.5
+			days = 5
 		}
 	}
 
 	fail = {
-		scope:target = {
-			NOT = {
-				any_primary_culture = {
-					has_cultural_obsession = opium
+		custom_tooltip = {
+			text = opium_wars_fail_tt
+			scope:target = {
+				NOT = {
+					any_primary_culture = {
+						has_cultural_obsession = opium
+					}
 				}
 			}
 		}
@@ -132,5 +152,5 @@ je_opium_wars = {
 	weight = 10000
 	should_be_pinned_by_default = yes
 
-	timeout = 3650
+	timeout = 1825
 }

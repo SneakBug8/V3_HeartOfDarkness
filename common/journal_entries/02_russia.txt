@@ -1,5 +1,11 @@
 ﻿je_the_eastern_border = {
     icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_historical_content
+
+    scripted_button = je_the_eastern_border_treaty_of_beijing
+    scripted_button = je_the_eastern_border_russia_chuguchak_protocol
+    
     is_shown_when_inactive = {
         exists = c:RUS
         THIS = c:RUS
@@ -7,13 +13,11 @@
     }
       possible = {
         has_technology_researched = nationalism
-        NOT = {
-            AND = {
-                owns_entire_state_region = STATE_OUTER_MANCHURIA 
-                owns_entire_state_region = STATE_JETISY 
-                owns_entire_state_region = STATE_TOMSK
-                owns_entire_state_region = STATE_KIRGHIZIA  
-            } 
+        NAND = {
+            owns_entire_state_region = STATE_OUTER_MANCHURIA 
+            owns_entire_state_region = STATE_JETISY 
+            owns_entire_state_region = STATE_TOMSK
+            owns_entire_state_region = STATE_KIRGHIZIA  
         }
     }
     immediate = {
@@ -52,7 +56,6 @@
     weight = 1000
     should_be_pinned_by_default = yes
 }
-
 
 je_western_project = {
     icon = "gfx/interface/icons/event_icons/event_military.dds"

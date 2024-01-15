@@ -1,0 +1,41 @@
+
+building_ivory_station = {
+	building_group = bg_ivory
+	texture = "gfx/interface/icons/building_icons/ivory.dds"
+	city_type = farm
+	levels_per_mesh = 5
+	buildable = yes
+	expandable = yes
+	terrain_manipulator = pasture
+	
+	unlocking_technologies = {
+		prospecting
+	}
+
+	required_construction = construction_cost_low
+	
+	production_method_groups = {
+		pmg_ivory
+	}
+}
+
+
+building_brown_fleet = {
+	building_group = bg_brownfleet
+	
+	texture = "gfx/interface/icons/building_icons/brown_fleet.dds"
+	buildable = yes
+	expandable = yes
+	
+	unlocking_technologies = {
+		ironclad_tech
+	}
+
+	ai_value = 2000 # Railways are important
+
+	required_construction = construction_cost_very_high
+	
+	production_method_groups = {
+		pmg_brown_fleet
+	}
+}

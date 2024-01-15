@@ -11,32 +11,8 @@ NAI = {
 	DIPLO_PLAY_NEUTRALITY_FROM_DEVASTATION_LEVEL = 200 # At 100% devastation across the country (weighted by state population), add this amount of neutrality score
 	DIPLO_PLAY_NEUTRALITY_FROM_TURMOIL = 200 # At 100% turmoil across the country (weighted by state population), add this amount of neutrality score
 
-    DIPLO_PLAY_ATTITUDE_DISINTERESTED_FACTOR = 0
-	DIPLO_PLAY_ATTITUDE_DISINTERESTED_BACKER_FACTOR = 0
-	DIPLO_PLAY_ATTITUDE_CAUTIOUS_FACTOR = 0
-	DIPLO_PLAY_ATTITUDE_CAUTIOUS_BACKER_FACTOR = 0
-	DIPLO_PLAY_ATTITUDE_CONCILIATORY_FACTOR = 7
-	DIPLO_PLAY_ATTITUDE_CONCILIATORY_BACKER_FACTOR = 5
-	DIPLO_PLAY_ATTITUDE_COOPERATIVE_FACTOR = 10
-	DIPLO_PLAY_ATTITUDE_COOPERATIVE_BACKER_FACTOR = 5
-	DIPLO_PLAY_ATTITUDE_GENIAL_FACTOR = 20
-	DIPLO_PLAY_ATTITUDE_GENIAL_BACKER_FACTOR = 7
-	DIPLO_PLAY_ATTITUDE_WARY_FACTOR = -7
-	DIPLO_PLAY_ATTITUDE_WARY_BACKER_FACTOR = -5
-	DIPLO_PLAY_ATTITUDE_BELLIGERENT_FACTOR = -40
-	DIPLO_PLAY_ATTITUDE_BELLIGERENT_BACKER_FACTOR = -25
-	DIPLO_PLAY_ATTITUDE_ANTAGONISTIC_FACTOR = -40
-	DIPLO_PLAY_ATTITUDE_ANTAGONISTIC_BACKER_FACTOR = -20
-	DIPLO_PLAY_ATTITUDE_LOYAL_FACTOR = 80
-	DIPLO_PLAY_ATTITUDE_LOYAL_BACKER_FACTOR = 20
-	DIPLO_PLAY_ATTITUDE_REBELLIOUS_FACTOR = -80
-	DIPLO_PLAY_ATTITUDE_REBELLIOUS_BACKER_FACTOR = -40
-	DIPLO_PLAY_ATTITUDE_PROTECTIVE_FACTOR = 40
-	DIPLO_PLAY_ATTITUDE_PROTECTIVE_BACKER_FACTOR = 15
-	DIPLO_PLAY_ATTITUDE_DOMINEERING_FACTOR = -7
-	DIPLO_PLAY_ATTITUDE_DOMINEERING_BACKER_FACTOR = 0
 
-    DIPLO_PLAY_BACK_DOWN_CHANCE_THRESHOLD = 10
+
     DIPLO_PLAY_SYMPATHY_ENEMY_OF_INFAMOUS_COUNTRY = 10
     DIPLO_PLAY_SYMPATHY_ENEMY_OF_NOTORIOUS_COUNTRY = 10
     DIPLO_PLAY_SYMPATHY_ENEMY_OF_PARIAH_COUNTRY = 1000
@@ -45,9 +21,7 @@ NAI = {
     DIPLO_PLAY_SYMPATHY_INCREASE_ADDED_PRIMARY_WARGOAL = 0.1
     DIPLO_PLAY_SYMPATHY_ENEMY_OF_ALLY_INITIATOR = -200 
     DIPLO_PLAY_SYMPATHY_ENEMY_OF_ALLY_TARGET = -100
-	DIPLO_PLAY_SYMPATHY_INCREASE_GAINED_BACKER = 100 # Sympathy is increased by up to this amount for enemy of a side which receives a new backer, scaled by their number of battalions compared to total forces in the play
     
-    UNIFICATION_AGGRESSION_MULT_HIGHER_TIER = 1 # AI aggression is multiplied by this for calculating whether they should try to start a unification/leadership play, if the country would end up forming a nation of a higher tier
 	DIPLO_PLAY_SWAY_THRESHOLD = 1.5 # If AI has this much military strength compared to enemy, don't bother trying to sway anyone
     CHANGE_LAW_CIVIL_WAR_AVERSION_SUBJECT_MULTIPLIER = 40 # Chance that AI stops enacting a law to avoid a civil war is increased by this for subjects
 	CHANGE_LAW_CIVIL_WAR_AVERSION_LAW_DIRECTION_FLEXIBILITY = 20 #10 # Revolution aversion is multiplied by this and added to the max progressiveness/regressiveness the AI is willing to stomach to avoid a revolution
@@ -55,16 +29,6 @@ NAI = {
 
 NPolitics = {
     REVOLUTION_SUPPORT_STATE_MULTIPLIER = 0.01
-   -- IG_APPROVAL_FROM_LAW = 2 		
-  --  IG_APPROVAL_FROM_LAW_STRONG_STANCE = 4 	
-
-  SECESSION_TURMOIL_CUTOFF = 0.4						# Turmoil requires for cultures to start secession
-	SECESSION_WEEKLY_BASE_CHANCE = 0.002				# weekly base chance for culture to start secession movement
-	SECESSION_WEEKLY_CHANCE_EXCESS_DIV = 100			# Excess turmoil is divided by this and used to increase chance for secession movements
-	MIN_POP_SIZE_TO_SECEDE = 100000						# Num pops (including dependents) needed for a secession movement to start
-	SECESSION_STATE_CUTOFF_PERCENT = 0.25				# Required pop percentage in State to be egligble for secession
-	SECESSION_TURMOIL_EXCESS_DIV = 1					# Excess turmoil is divided by this and used to increase secession movements
-	SECESSION_COOLDOWN_YEARS = 5
 }
 
 NEconomy = {
@@ -73,21 +37,18 @@ RETOOLING_WEEKS = 12
 DEBT_SLAVERY_ENSLAVEMENT_RATE_PER_POP = 0.5
 
 DEBT_SLAVERY_MAX_STATE_SLAVE_FRACTION = 0.9 
-SLAVE_TRADE_SLAVES_PER_WEEK = 500
+SLAVE_TRADE_BASE_SLAVES_PER_WEEK = 500
 TRADE_ROUTE_MAX_LEVEL = 1000
 GOODS_SHORTAGE_PENALTY_MAX = 1.0
 }
 NMilitary = {
-    GENERAL_TRAVEL_PIXELS_TO_DAYS_SCALE = 0.06
     GENERAL_TRAVEL_CAP = 120                         # Limits the travel time to GENERAL_TRAVEL_CAP days. The overseas penalty (GENERAL_TRAVEL_OVERSEAS_SCALE) is still applied.
     GENERAL_TRAVEL_OVERSEAS_SCALE = 1.5            # Used if a general is traveling overseas. So the total duration of the travel becomes Duration * GENERAL_TRAVEL_OVERSEAS_SCALE
-    BASE_BATTALION_CONVOY_COST = 20
 }
 
 NDiplomacy = {
 --    DIPLOMATIC_ACTION_COOLDOWN_DAYS = 5
     WAR_GOAL_REGIME_CHANGE_MAX_IDEOLOGICAL_OPINION = -1
-	WAR_GOAL_INFAMY_UNIFICATION = 1.0
 }
 
 NPops = {
@@ -110,9 +71,5 @@ NPops = {
 }
 
 NWar = {
-    MAX_SIMULTANEOUS_BATTLES = 2                    # Allows to spawn up to MAX_SIMULTANEOUS_BATTLES as long as you have that many generals with advance orders.
 	PREFER_BATTLES_IN_UNIQUE_STATES = yes
-	DEVASTATION_INCREASE_RATE = 2.5 # Per day, scales with level of occupation
-	DEVASTATION_DECAY_RATE = -1.5 # Per day, when there are no occupations
-	DEVASTATION_FROM_BATTLES = 1.5 # For each battle
 }

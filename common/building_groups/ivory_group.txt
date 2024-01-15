@@ -1,0 +1,41 @@
+
+bg_ivory = {
+	parent_group = bg_mining
+
+    urbanization = 1
+	infrastructure_usage_per_level = 1
+
+	auto_place_buildings = yes
+
+	discoverable_resource = yes
+	
+	depletable_resource = yes
+	
+	pays_taxes = no
+
+	default_building = building_ivory_station
+	
+	fired_pops_become_radical = no
+
+	can_use_slaves = yes
+}
+
+bg_brownfleet = {
+	parent_group = bg_infrastructure
+	lens = special
+    always_possible = no
+
+	capped_by_resources = yes
+	stateregion_max_level = yes		If yes, any building types in this group with the has_max_level property will consider its level restrictions on state-region rather than state level	
+
+	urbanization = 20
+
+	default_building = building_brown_fleet
+
+	## Added
+	is_government_funded = no
+	subsidized = yes
+	can_use_slaves = yes
+	
+    cash_reserves_max = 25000
+}

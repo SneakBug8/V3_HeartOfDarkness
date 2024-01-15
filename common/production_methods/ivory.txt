@@ -1,0 +1,57 @@
+ivory = {
+	texture = "gfx/interface/icons/production_method_icons/gold_mining.dds"
+	
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_small_arms_add = 1
+
+			goods_output_gold_add = 20
+		}
+		level_scaled = {
+			building_employment_shopkeepers_add = 100
+			building_employment_laborers_add = 500
+		}
+		unscaled = {
+			building_shopkeepers_shares_add = 3
+			building_laborers_shares_add = 1
+            building_laborers_mortality_mult = 0.3
+			building_shopkeepers_mortality_mult = 0.2
+		}
+	}
+	
+	country_modifiers = {
+		workforce_scaled = {
+			country_minting_add = 500
+		}
+	}
+}
+
+brown_fleet = {
+	texture = "gfx/interface/icons/production_method_icons/reinforced_steam_ships.dds"
+	
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_steamers_add = 1
+			goods_input_coal_add = 5 # 150
+			building_output_transportation_add = 25
+		}
+		level_scaled = {
+			building_employment_shopkeepers_add = 100
+			building_employment_laborers_add = 500
+		}
+		unscaled = {
+			building_shopkeepers_shares_add = 3
+			building_laborers_shares_add = 1
+            building_laborers_mortality_mult = 0.3
+			building_shopkeepers_mortality_mult = 0.2
+		}
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 25
+			state_pollution_generation_add = 20
+			state_market_access_price_impact = 0.05
+		}
+	}
+}
