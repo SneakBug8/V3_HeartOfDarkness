@@ -27,8 +27,8 @@ carlist_legacy = {
 }
 
 aztecs_gold = {
-	building_gold_fields_throughput_mult = 0.2
-	building_gold_mines_throughput_mult = 0.2
+	building_gold_fields_throughput_add = 0.2
+	building_gold_mines_throughput_add = 0.2
 }
 
 elan = {
@@ -42,9 +42,9 @@ panslavic_empire = {
 wonderful_harvest = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
 
-	building_group_bg_agriculture_throughput_mult = 0.5
-	building_group_bg_ranching_throughput_mult = 0.5
-	building_group_bg_plantations_throughput_mult = 0.5
+	building_group_bg_agriculture_throughput_add = 0.5
+	building_group_bg_ranching_throughput_add = 0.5
+	building_group_bg_plantations_throughput_add = 0.5
 }
 
 good_harvest = {
@@ -58,33 +58,33 @@ good_harvest = {
 poor_harvest = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
 
-	building_group_bg_agriculture_throughput_mult = -0.1
-	building_group_bg_ranching_throughput_mult = -0.1
-	building_group_bg_plantations_throughput_mult = -0.1
+	building_group_bg_agriculture_throughput_add = -0.1
+	building_group_bg_ranching_throughput_add = -0.1
+	building_group_bg_plantations_throughput_add = -0.1
 }
 
 awful_harvest = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
 
-	building_group_bg_agriculture_throughput_mult = -0.5
-	building_group_bg_ranching_throughput_mult = -0.5
-	building_group_bg_plantations_throughput_mult = -0.5
+	building_group_bg_agriculture_throughput_add = -0.5
+	building_group_bg_ranching_throughput_add = -0.5
+	building_group_bg_plantations_throughput_add = -0.5
 
-	building_output_fruit_mult = -0.5
-	building_output_wine_mult = -0.5
-	building_output_wheat_mult = -0.5
+	building_output_fruit_add = -0.5
+	building_output_wine_add = -0.5
+	building_output_wheat_add = -0.5
 
 
-	building_output_sugar_mult = -0.5
-	building_output_silk_mult = -0.5
+	building_output_sugar_add = -0.5
+	building_output_silk_add = -0.5
 
-	building_cotton_plantation_throughput_mult = -0.5
-	building_wheat_farm_throughput_mult = -0.5
+	building_cotton_plantation_throughput_add = -0.5
+	building_wheat_farm_throughput_add = -0.5
 
 }
 
 mining_crash = {
-	building_throughput_mult = -0.5
+	building_throughput_add = -0.5
 }
 
 united_kingdom_bonus = {
@@ -94,22 +94,14 @@ united_kingdom_bonus = {
 }
 
 army_with_a_state = {
-	building_arms_industry_throughput_mult = 0.1
-	building_munition_plants_throughput_mult = 0.1
-	building_war_machine_industry_throughput_mult = 0.1
+	building_arms_industry_throughput_add = 0.1
+	building_munition_plants_throughput_add = 0.1
+	building_war_machine_industry_throughput_add = 0.1
 }
 
 culture_school = {
-	building_arts_academy_throughput_mult = 0.1
-	building_university_throughput_mult = 0.1
-}
-
-adjancency_bonus = {
-	building_throughput_mult = 0.15
-}
-
-adjancency_bonus2 = {
-	building_throughput_mult = 0.3
+	building_arts_academy_throughput_add = 0.1
+	building_university_throughput_add = 0.1
 }
 
 italian_work_culture = {
@@ -137,10 +129,14 @@ currency_leader_change = {
 }
 
 limited_war = {
-	state_conscription_rate_mult = -1
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
+
+	state_conscription_rate_mult = -10
 }
 
 escalated_war = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_neutral.dds
+
 	state_conscription_rate_mult = -0.5
 	country_opposition_ig_approval_add = -1
 	country_radicals_from_conquest_mult = 0.1
@@ -148,6 +144,8 @@ escalated_war = {
 }
 
 unlimited_war = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+
 	country_opposition_ig_approval_add = -2
 	country_radicals_from_conquest_mult = 0.2
 	state_radicals_from_sol_change_mult = 0.1

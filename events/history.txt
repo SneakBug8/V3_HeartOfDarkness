@@ -1,73 +1,5 @@
 namespace = history
 
-# Louis Napoleon
-history.1 = {
-	type = country_event
-	placement = ROOT
-
-    title = history.1.t
-	desc = history.1.d
-	flavor = history.1.f
-
-	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
-
-	icon = "gfx/interface/icons/event_icons/event_map.dds"
-
-	duration = 3
-
-	trigger = {
-        year >= 1850
-        exists = c:FRA
-        c:FRA = ROOT
-        is_at_war = no
-		is_diplomatic_play_committed_participant = no
-		is_revolutionary = no
-
-        not = {
-            has_variable = luis_napoleon
-        }
-        }
-
-        option = {
-            default_option = yes
-            set_variable = luis_napoleon
-		activate_law = law_type:law_presidential_republic
-		activate_law = law_type:law_autocracy
-
-        create_character = {
-	            first_name = Louis-Napoleon
-                last_name = Bonaparte
-                culture = cu:french
-                female = no
-                ruler = yes
-                religion = catholic
-                ideology = ideology_royalist
-                interest_group = ig_petty_bourgeoisie # Can be overriden by interest_group_leader_usage
-                birth_date = 1808.4.20
-                dna = dna_emperor_napoleon_03
-                traits = {
-                    ambitious demagogue
-                }
-			}
-
-            ai_chance = {
-			    base = 1
-		    }
-        }
-
-        option = {
-            set_variable = luis_napoleon
-
-            ai_chance = {
-			    base = 0
-		    }
-        }
-}
 
 # Hungarian uprising
 history.2 = {
@@ -149,16 +81,23 @@ history.2 = {
         option = {
             default_option = yes
 
-            create_diplomatic_play = {
-                target_country = c:HUN
-				type = dp_annex_war
+
+            c:HUN = {
+                create_diplomatic_play = {
+                target_country = root
+                type = independence
+				primary_demand = yes
+
 
                 add_war_goal = {
-                    holder = c:HUN
-                    type = independence
-                    target_country = ROOT
+                    holder = root
+				    type = dp_annex_war
+                    target_country = c:HUN
+				primary_demand = yes
+
                 }
 
+                }
             }
 
             ai_chance = {
@@ -412,11 +351,15 @@ history.6 = {
             create_diplomatic_play = {
                 target_country = c:PHI
 				type = dp_annex_war
+				primary_demand = yes
+
 
                 add_war_goal = {
                     holder = c:PHI
                     type = independence
                     target_country = ROOT
+				primary_demand = yes
+                    
                 }
 
             }
@@ -520,16 +463,21 @@ history.7 = {
         option = {
             default_option = yes
 
-            create_diplomatic_play = {
-                target_country = c:POL
-				type = dp_annex_war
-
-                add_war_goal = {
-                    holder = c:POL
-                    type = independence
+            c:POL = {
+                create_diplomatic_play = {
                     target_country = ROOT
-                }
+                    type = independence
+				primary_demand = yes
 
+
+                    add_war_goal = {
+                        holder = ROOT
+                        type = dp_annex_war
+                        target_country = c:POL
+				primary_demand = yes
+
+                    }
+                }
             }
 
             ai_chance = {
@@ -570,12 +518,15 @@ history.8 = {
         OR = {
             AND = {
                 NOT = {
-                exists = c:IRE
+                    exists = c:IRE
                 }
                 owns_entire_state_region = STATE_LEINSTER
             }
-            c:IRE = {
-				is_subject_of = ROOT				
+            AND = {
+                exists = c:IRE
+                c:IRE = {
+                    is_subject_of = ROOT				
+                }
             }
         }
 
@@ -633,13 +584,16 @@ history.8 = {
             create_diplomatic_play = {
                 target_country = c:IRE
 				type = dp_annex_war
+				primary_demand = yes
+
 
                 add_war_goal = {
                     holder = c:IRE
                     type = independence
                     target_country = ROOT
-                }
+				primary_demand = yes
 
+                }
             }
 
             ai_chance = {
@@ -729,11 +683,15 @@ history.9 = {
             create_diplomatic_play = {
                 target_country = c:BUL
 				type = dp_annex_war
+				primary_demand = yes
+
 
                 add_war_goal = {
                     holder = c:BUL
                     type = independence
                     target_country = ROOT
+				primary_demand = yes
+
                 }
 
             }
@@ -825,11 +783,15 @@ history.10 = {
             create_diplomatic_play = {
                 target_country = c:BOS
 				type = dp_annex_war
+				primary_demand = yes
+
 
                 add_war_goal = {
                     holder = c:BOS
                     type = independence
                     target_country = ROOT
+				primary_demand = yes
+
                 }
 
             }
@@ -956,6 +918,182 @@ history.11 = {
 
             ai_chance = {
 			    base = 10
+		    }
+        }
+}
+
+# Serbo-Turkish war uprising
+history.12 = {
+	type = country_event
+	placement = ROOT
+
+    title = history.2.t
+	desc = history.2.d
+	flavor = history.2.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        year >= 1878
+        
+        c:SER = {
+			is_subject_of = ROOT
+        }
+
+        not = {
+            has_variable = serbian_war
+        }
+        }
+
+        immediate = {
+            if = {
+                limit = {
+                    NOT = { exists = c:SER }
+                }
+
+                random_scope_state = {
+                    limit = {
+                        state_region = {
+                            is_homeland = cu:serbian
+                        }
+                    }
+
+                    save_scope_as = secession_state
+                }
+
+                create_country = {
+                        tag = SER
+                        origin = this
+                        state = scope:secession_state
+                }
+
+                every_scope_state = {
+                limit = {
+                    state_region = {
+                        OR = {
+                            is_homeland = cu:serbian
+                        }
+                    }
+                }
+
+                set_state_owner = c:SER
+                }
+            }
+
+            
+            set_variable = serbian_war
+        }
+
+        option = {
+            default_option = yes
+
+
+            c:SER = {
+                create_diplomatic_play = {
+                target_country = root
+                type = independence
+				primary_demand = yes
+
+
+                add_war_goal = {
+                    holder = root
+				    type = dp_annex_war
+                    target_country = c:SER
+				primary_demand = yes
+
+                }
+
+                }
+            }
+
+            ai_chance = {
+			base = 1
+		    }
+        }
+
+        option = {
+            ai_chance = {
+			    base = 0
+		    }
+        }
+}
+
+# Montenegro-Turkish war
+history.13 = {
+	type = country_event
+	placement = ROOT
+
+    title = history.2.t
+	desc = history.2.d
+	flavor = history.2.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+        year >= 1878
+        
+        c:MON = {
+			is_subject_of = ROOT
+        }
+
+        not = {
+            has_variable = serbian_war
+        }
+        }
+
+        immediate = {
+                      
+            set_variable = montenegrin_war
+        }
+
+        option = {
+            default_option = yes
+
+
+            c:MON = {
+                create_diplomatic_play = {
+                target_country = root
+                type = independence
+				primary_demand = yes
+
+
+                add_war_goal = {
+                    holder = root
+				    type = dp_annex_war
+                    target_country = c:MON
+				primary_demand = yes
+
+                }
+
+                }
+            }
+
+            ai_chance = {
+			base = 1
+		    }
+        }
+
+        option = {
+            ai_chance = {
+			    base = 0
 		    }
         }
 }

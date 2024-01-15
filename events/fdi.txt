@@ -260,7 +260,6 @@ fdi.5 = {
 	hidden = yes
 
     immediate = {
-
             every_scope_state = {
                 remove_modifier = wonderful_harvest
                 remove_modifier = good_harvest
@@ -293,38 +292,6 @@ fdi.5 = {
                         }
                     }
 				}
-
-
-                random_scope_building = {
-                    remove_modifier = adjancency_bonus
-                    remove_modifier = adjancency_bonus2
-
-                    if = {
-                        limit = {
-				            is_building_type = building_textile_mills
-                            state = {
-				                has_building = building_cotton_plantation
-                            }
-                        }
-                    }
-                }
-
-                is_building_type = building_food_industry
-					is_building_type = building_textile_mills
-					is_building_type = building_furniture_manufacturies
-					is_building_type = building_glassworks
-					is_building_type = building_tooling_workshops
-					is_building_type = building_paper_mills
-					is_building_type = building_chemical_plants
-					is_building_type = building_synthetics_plants
-					is_building_type = building_steel_mills
-					is_building_type = building_motor_industry
-					is_building_type = building_shipyards
-					is_building_type = building_war_machine_industry
-					is_building_type = building_electrics_industry
-					is_building_type = building_arms_industry
-					is_building_type = building_munition_plants
-					is_building_type = building_power_plant
             }
             
         }

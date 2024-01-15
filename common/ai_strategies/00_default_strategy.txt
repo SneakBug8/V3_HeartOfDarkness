@@ -988,51 +988,32 @@ ai_strategy_default = {
 			add = {
 				value = 5
 			
-				add = {
-					value = scope:target_state.state_population
-					divide = 200000
-					max = 10
-				}
-				
-				add = {
-					value = scope:target_state.gdp
-					divide = 200000
-					max = 10
-				}
-			
-				if = {
-					limit = {
-						any_scope_building = {
-							is_building_type = building_trade_center
-							level > 0
-						}						
-					}
-					add = 5
-				}
-				
-				if = {
-					limit = {
-						OR = {
-							is_country_type = unrecognized
-							scope:target_country = { NOT = { is_country_type = unrecognized } }
-						}						
-					}
-					multiply = 0.5
-				}
-					
-				if = {
-					limit = {
-						has_strategic_adjacency = scope:target_state		
-					}
-					multiply = 1.25
-				}	
-
 				if = {
 					limit = {
 						scope:target_state = { is_incorporated = no	}
 					}
 					multiply = 0.25
 				}						
+			}
+
+			if = {
+				limit = {
+					can_reach_target_state = yes
+					scope:target_country = {
+						has_law = law_type:law_isolationism
+						gdp >= 10000000 # Not worth doing against very small markets
+					}
+					scope:target_state = { is_incorporated = yes }
+				}
+				add = {
+					value = 5
+				
+					# More likely to grab a treaty port if we're already enemies in a play, ie they attacked us first
+					if = {
+						limit = { is_diplomatic_play_enemy_of = scope:target_country }
+						multiply = 2.0
+					}
+				}
 			}										
 		}
 					
@@ -1133,7 +1114,7 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				scope:target_country = {
-					gdp < 2000000 
+					gdp < 10000000 
 				}
 			}
 			multiply = 0
@@ -1854,7 +1835,17 @@ ai_strategy_default = {
 				}				
 			}
 			add = 5
-		}		
+		}	
+		
+
+		if = {
+			limit = {
+				OR = {
+					scope:target_country = { is_country_type = unrecognized }
+				}				
+			}
+			add = 5
+		}
 		
 		# Very high aggression against pariah countries by Great Powers
 		if = {
@@ -1982,6 +1973,7 @@ ai_strategy_default = {
 					any_scope_state = {
 						OR = {
 							state_region = s:STATE_CALIFORNIA
+							state_region = s:STATE_COLORADO
 							state_region = s:STATE_NEVADA
 							state_region = s:STATE_UTAH
 							state_region = s:STATE_ARIZONA
@@ -2071,7 +2063,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 5
+			add = 25
 		}
 
 		if = { #Russian Caucasus
@@ -2087,7 +2079,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 10
+			add = 25
 		}
 
 		if = { #Russian Far East
@@ -2104,7 +2096,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 10
+			add = 25
 		}
 
 		if = { #Russian Central Asia
@@ -2125,7 +2117,7 @@ ai_strategy_default = {
 				}
 				can_reach_target_country = yes
 			}
-			add = 10
+			add = 25
 		}
 		
 		if = { #Russian Central Asia
@@ -2142,7 +2134,14 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 15
+			add = 25
+		}
+
+		if = {
+			limit = {	
+				infamy < 5				
+			}
+			add = 5
 		}
 
 		# Aggression against radical leftists
@@ -2372,8 +2371,10 @@ ai_strategy_default = {
 				has_law = law_type:law_slavery_banned
 				country_rank >= rank_value:great_power
 				scope:target_country = {
-					has_modifier = brazil_slaving_pariah_modifier
-					has_law = law_type:law_slave_trade
+					OR = {
+						has_modifier = brazil_slaving_pariah_modifier
+						has_law = law_type:law_slave_trade
+					}
 				}
 			}
 			add = 10
@@ -2387,13 +2388,13 @@ ai_strategy_default = {
 
 		add = {
 			value = investment_pool_income
-			divide = 750 # 1 construction output per this much into the investment pool				
+			divide = 1000 # 1 construction output per this much into the investment pool				
 		}
 		
 		add = {
 			value = income
 					
-			divide = 3000 # 1 construction output per this much income
+			divide = 5000 # 1 construction output per this much income
 
 			min = 0
 		}		
@@ -2463,12 +2464,12 @@ ai_strategy_default = {
 	
 		add = {
 			value = cached_ai_incorporated_population
-			divide = 250000 # 1 level of barracks per 250k incorporated population	
+			divide = 350000 # 1 level of barracks per 250k incorporated population	
 		}		
 		
 		add = {
 			value = cached_ai_unincorporated_population
-			divide = 1000000 # 1 level of barracks per 1 million unincorporated population	
+			divide = 1500000 # 1 level of barracks per 1 million unincorporated population	
 		}
 		
 		max = 250 # No more than 250 from population
@@ -2481,27 +2482,27 @@ ai_strategy_default = {
 		# More advanced standing armies are expensive and should be smaller relative to population
 		if = {
 			limit = { has_technology_researched = line_infantry }
-			multiply = 0.9
+			multiply = 0.8
 		}
 
 		if = {
 			limit = { has_technology_researched = general_staff }
-			multiply = 0.9
+			multiply = 0.8
 		}
 
 		if = {
 			limit = { has_technology_researched = trench_works }
-			multiply = 0.9
+			multiply = 0.8
 		}
 
 		if = {
 			limit = { has_technology_researched = nco_training }
-			multiply = 0.9
+			multiply = 0.8
 		}
 		
 		if = {
 			limit = { has_technology_researched = mobile_armor }
-			multiply = 0.9
+			multiply = 0.8
 		}	
 
 		# Factor in strategies
@@ -2530,19 +2531,19 @@ ai_strategy_default = {
 		# 1 level of naval base per 350k coastal incorporated population							
 		add = {
 			value = cached_ai_incorporated_coastal_population
-			divide = 350000 
+			divide = 500000 
 		}
 
 		# 1 level of naval base per 1 million coastal unincorporated population					
 		add = {
 			value = cached_ai_unincorporated_coastal_population
-			divide = 1000000 
+			divide = 1200000 
 		}
 
 		# 1 level of naval base per 1 million population in direct overseas subjects	
 		add = {
 			value = cached_ai_overseas_subject_population
-			divide = 1000000 
+			divide = 2000000 
 		}	
 
 		max = 250 # No more than 250 from population		
@@ -2589,7 +2590,7 @@ ai_strategy_default = {
 		
 		if = {
 			limit = { country_rank < rank_value:major_power }
-			multiply = 0.75
+			multiply = 0.5
 		}						
 		
 		if = {

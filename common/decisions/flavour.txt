@@ -34,7 +34,7 @@ unify_colombia = {
         }
     }
 
-    limit = {
+    possible = {
         country_or_subject_owns_entire_state_region = STATE_BOLIVAR
         country_or_subject_owns_entire_state_region = STATE_MIRANDA
 
@@ -92,7 +92,7 @@ unify_sgf = {
         }
     }
 
-    limit = {
+    possible = {
         country_or_subject_owns_entire_state_region = STATE_BAVARIA
     }
 
@@ -117,79 +117,14 @@ unify_sgf = {
     }
 }
 
-cavour_diplomacy = {
-    is_shown = {
-        exists = c:SAR
-        c:SAR = ROOT
-        NOT = {has_variable = cavour_diplomacy}
-    }
 
-    limit = {
-        exists = c:SAR
-        c:SAR = ROOT
-        NOT = {has_variable = cavour_diplomacy}
-        is_at_war = no
-		is_diplomatic_play_committed_participant = no
-		is_revolutionary = no
-    }
-
-    when_taken = {
-        set_variable = cavour_diplomacy
-        every_scope_state = {
-            limit = {
-                OR = {
-                    state_region = s:STATE_SAVOY
-                    state_region = s:STATE_PROVENCE
-                }
-            }
-            set_state_owner = c:FRA
-        }
-        
-        create_diplomatic_pact = {
-            country = c:FRA
-            type = alliance
-        }
-
-        FRA = {
-            set_owes_obligation = {
-                country = c:SAR
-                setting = yes
-            } 
-        }
-
-        create_diplomatic_play = {
-					target_state = s:STATE_LOMBARDY.region_state:AUS
-					target_country = c:AUS
-
-					type = dp_return_state
-
-                    add_war_goal = {
-                        holder = ROOT
-                        type = return_state
-                        target_state = s:STATE_VENETIA.region_state:AUS
-                    }
-            }
-    }
-
-	ai_chance = {
-        base = 0
-        modifier = {
-			trigger = { 
-				c:AUS = {
-                    is_at_war = yes
-                }
-			}
-			add = 5
-		}
-    }
-}
 
 inherit_claims = {
     is_shown = {
         is_player = yes
     }
 
-    limit = {
+    possible = {
         is_at_war = no
 		is_diplomatic_play_committed_participant = no
 		is_revolutionary = no
@@ -218,7 +153,7 @@ become_dominion = {
         is_subject = yes
     }
 
-    limit = {
+    possible = {
         is_at_war = no
 		is_diplomatic_play_committed_participant = no
 		is_revolutionary = no
@@ -253,7 +188,7 @@ croatian_compromise = {
         NOT = {has_variable = croatian_compromise}
     }
 
-    limit = {
+    possible = {
        exists = c:AUS
         exists = c:HUN
         OR = {
@@ -347,20 +282,27 @@ croatian_compromise = {
 }
 
 
-escalate_war = 
-{
+escalate_war = {
     is_shown = {
         has_modifier = limited_war
     }
 
-    limit = {
+    possible = {
         is_at_war = yes
-       
     }
 
     when_taken = {
         remove_modifier = limited_war
         add_modifier = escalated_war
+
+        save_scope_as = originator
+        every_country = {
+            limit = {
+                has_interest_marker_in_region = scope:originator.capital.region
+                NOT = { this = root }
+            }
+            post_notification = escalated_war
+        }
     }
 
 	ai_chance = {
@@ -369,7 +311,8 @@ escalate_war =
         modifier = {
             trigger = {
             any_scope_war = {
-                has_war_exhaustion = { target = ROOT value > 25 }
+                has_war_exhaustion = { target = ROOT
+                value > 25 }
                 is_warleader = yes
             }
             }
@@ -390,10 +333,9 @@ escalate_war =
             trigger = {
             any_scope_province = {
                 is_target_of_wargoal = yes
-                OR = 
-                {
+                OR = {
                     is_incorporated = yes
-                    is_homeland_of_country_cultures = RPPT
+                    is_homeland_of_country_cultures = ROOT
                 }
             }
             }
@@ -408,13 +350,22 @@ unlimited_war = {
         has_modifier = escalated_war
     }
 
-    limit = {
+    possible = {
         is_at_war = yes
     }
 
     when_taken = {
         remove_modifier = escalated_war
         add_modifier = unlimited_war
+
+		save_scope_as = originator
+        every_country = {
+            limit = {
+                has_interest_marker_in_region = scope:originator.capital.region
+                NOT = { this = root }
+            }
+            post_notification = unlimited_war
+        }
     }
 
 	ai_chance = {

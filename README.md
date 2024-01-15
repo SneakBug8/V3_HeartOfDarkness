@@ -39,8 +39,8 @@
 |           | Claims for Persia over neighbours                            | Done                        |          |
 |           | Gran Colombia can be released                                | Done                        |          |
 |           | Italy can be released                                        | Done                        |          |
-|           | SGF can be released within a single province<br />(Prevent Austria from cutting half its territory when releasing SGF) | Done                        |          |
 |           | More predictable Diploplay AI<br />(Less reluctance to abandon allies and subjects, redrawn sympathies, more neutrality score) | Done                        |          |
+|           | SGF can be released within a single province<br />(Prevent Austria from cutting half its territory when releasing SGF) | Done                        | Done     |
 |           | Rebalanced AI’s agressivenes and willingless to conquer states<br />ИИ должен быть агрессивнее, но соблюдать стратегии и не лезть в рандомные авантюры (Австрия захватывает Бельгию или Индия Уругвай) | WIP                         |          |
 |           | Added a bunch of secret goals for conquest to carve up the world more | Done                        |          |
 |           | Decision to occupy split state (e.g. treaty port) before other party starts diploplay to return it | Done                        |          |
@@ -67,27 +67,28 @@
 |           | Army quality matters more<br />(Quantity 1.5x troops count difference effect nerfed to 1) | Done                        |          |
 |           | More costly war goods                                        | Crippling for the AI        |          |
 |           | More convoys per batallion overseas<br />(10->20)            | Done                        |          |
-| Events    | French Directory (end of July Monarchy)                      | Done                        |          |
-|           | Louis Napoleon III’s coup                                    | Done                        |          |
-|           | Mexico player can crown Maximillian von Habsburg with decision | Done                        |          |
+| Events    | French Directory (end of July Monarchy)                      | Done                        | NA       |
+|           | Louis Napoleon III’s coup                                    | Done                        | NA       |
+|           | Mexico player can crown Maximillian von Habsburg with decision<br />Results in Mexico becoming French protectorate | Done                        |          |
 |           | Philippines revolution of 1890                               | Done                        |          |
-|           | Hungarian revolt of 1848                                     | Done                        |          |
-|           | Polish revolt of 1863                                        | Done                        |          |
-|           | Irish revolt of 1848                                         | WIP                         |          |
-|           | Bulgarian uprising of 1878                                   |                             |          |
-|           | Bosniak uprising of 1878                                     |                             |          |
+|           | Hungarian revolt of 1848<br />Results in annexation of Hungary by Austria | Done                        |          |
+|           | Polish revolt of 1863<br />Results in annexation of Poland by Russia | Done                        |          |
+|           | Irish revolt of 1848                                         | Done                        | Done     |
+|           | Bulgarian uprising of 1878                                   | Test                        |          |
+|           | Bosniak uprising of 1878                                     | Test                        |          |
+|           | Serbo-Turkish war 1876                                       |                             |          |
 |           | Paraguayan war of 1865                                       |                             |          |
 |           | Events for internationals giving temporary buff to trade unions and a choice for a revolutionary to appear | WIP                         |          |
-|           | Croatian compromise: Austria and Hungary collectively create puppet Croatia | Done                        |          |
+|           | Croatian compromise: Austria and Hungary collectively create puppet Croatia | Done                        | Done     |
 
 ## Includes
 
 https://catalogue.smods.ru/archives/157735
 https://catalogue.smods.ru/archives/157731 Subject Management UI
-https://catalogue.smods.ru/archives/157732 State Transfer Tool UI
+https://catalogue.smods.ru/archives/157732 State Transfer Tool UI - removed as Trade States is now in the basegame
 https://catalogue.smods.ru/archives/153379
 https://catalogue.smods.ru/archives/158575 OPB tweaks
 https://catalogue.smods.ru/archives/162603 Ethnostates buffs
 https://catalogue.smods.ru/archives/162755 More state traits
-https://catalogue.smods.ru/archives/163139 Malaria icons
+https://catalogue.smods.ru/archives/163139 Malaria icons - removed as it's now in the basegame
 https://catalogue.smods.ru/archives/135191 Equal customs union

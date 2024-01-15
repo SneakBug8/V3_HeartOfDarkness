@@ -2,11 +2,8 @@
 building_ivory_station = {
 	building_group = bg_ivory
 	texture = "gfx/interface/icons/building_icons/ivory.dds"
-	city_type = farm
-	levels_per_mesh = 5
 	buildable = yes
 	expandable = yes
-	terrain_manipulator = pasture
 	
 	unlocking_technologies = {
 		prospecting

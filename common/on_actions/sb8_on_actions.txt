@@ -18,6 +18,8 @@ on_yearly_pulse_country = {
         history.9
         history.10
         history.11
+        history.12
+        history.13
         escalation.1
     }
 }

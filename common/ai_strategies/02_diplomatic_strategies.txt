@@ -220,7 +220,10 @@ ai_strategy_territorial_expansion = {
 			if = {
 				limit = {
 					can_reach_target_country = yes
-					has_strategic_adjacency = scope:target_country
+					OR = {
+						has_strategic_adjacency = scope:target_country
+						scope:target_country = { has_port = yes }
+					}
 					scope:target_country.country_rank <= root.country_rank
 				}
 				
@@ -812,28 +815,7 @@ ai_strategy_economic_imperialism = {
 		make_protectorate = 1.5	
 		make_tributary = 1.5	
 	}	
-	
-	treaty_port_value = {
-		if = {
-			limit = {
-				can_reach_target_state = yes
-				scope:target_country = {
-					has_law = law_type:law_isolationism
-					gdp >= 2000000 # Not worth doing against very small markets
-				}
-				scope:target_state = { is_incorporated = yes }
-			}
-			add = {
-				value = 50
-			
-				# More likely to grab a treaty port if we're already enemies in a play, ie they attacked us first
-				if = {
-					limit = { is_diplomatic_play_enemy_of = scope:target_country }
-					multiply = 2.0
-				}
-			}
-		}	
-	}
+
 	
 	wargoal_scores = {	
 		open_market = {

@@ -1,0 +1,17 @@
+﻿escalated_war = {
+	type = country
+	group = "springtime_of_the_people_je_opened_group"
+	
+	texture = "gfx/interface/icons/notification_icons/revolution.dds"
+
+	notification_type = feed
+}
+
+unlimited_war = {
+	type = country
+	group = "springtime_of_the_people_je_opened_group"
+	
+	texture = "gfx/interface/icons/notification_icons/revolution.dds"
+
+	notification_type = feed
+}

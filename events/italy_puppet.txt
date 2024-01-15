@@ -112,6 +112,8 @@ italy_puppet.1 = {
 	}
 }
 
+
+## Prussia absorbs other states
 italy_puppet.2 = {
 	type = country_event
 	placement = ROOT
@@ -133,16 +135,57 @@ italy_puppet.2 = {
 
 	trigger = {
         year > 1848
-		exists = c:PRU
 
-        NOT = {
-            exists = c:GER
-            exists = c:NGF
+        if = {
+            limit = {
+		        exists = c:PRU
+            }
+
+            c:PRU = {
+			    save_scope_as = unifier
+            }
         }
+
+        if = {
+            limit = {
+		        exists = c:NGF
+            }
+
+            c:NGF = {
+			    save_scope_as = unifier
+            }
+        }
+
+        if = {
+            limit = {
+		        exists = c:GER
+            }
+
+            c:GER = {
+			    save_scope_as = unifier
+            }
+        }
+
+        OR = {
+            AND = {
+                NOT = {
+                    exists = c:GER
+                    exists = c:NGF
+                }
+                country_has_primary_culture = cu:north_german
+            }
+            AND = {
+                exists = c:GER
+                OR = {
+                    country_has_primary_culture = cu:south_german
+                    country_has_primary_culture = cu:north_german
+                }
+            }
+        }
+       
         is_player = no
         is_subject = no
         is_at_war = no
-        country_has_primary_culture = cu:north_german
 
         NOT = {
             ROOT = c:LUX
@@ -150,10 +193,11 @@ italy_puppet.2 = {
 							
             NOT = { country_rank = rank_value:great_power }
 
-		    c:PRU = {
-                    is_at_war = no
-                has_technology_researched = nationalism
-            }
+		scope:unifier = {
+            is_player = no
+            is_at_war = no
+            has_technology_researched = nationalism
+        }
 
         }
 
@@ -161,13 +205,46 @@ italy_puppet.2 = {
 		name = can_aus.1.a
 		default_option = yes
 
+        if = {
+            limit = {
+		        exists = c:PRU
+            }
+
+            c:PRU = {
+			    save_scope_as = unifier
+            }
+        }
+
+        if = {
+            limit = {
+		        exists = c:NGF
+            }
+
+            c:NGF = {
+			    save_scope_as = unifier
+            }
+        }
+
+        if = {
+            limit = {
+		        exists = c:GER
+            }
+
+            c:GER = {
+			    save_scope_as = unifier
+            }
+        }
+
         random_scope_state = {
             limit = {
                 state_region = {
-                    is_homeland = cu:north_german
+                    OR = {
+                        is_homeland = cu:north_german
+                        is_homeland = cu:south_german
+                    }
                 }
             }
-            set_state_owner = c:PRU
+            set_state_owner = scope:unifier
         }
 	}
 }

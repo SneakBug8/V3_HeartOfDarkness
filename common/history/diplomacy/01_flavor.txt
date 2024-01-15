@@ -86,4 +86,23 @@ DIPLOMACY = {
 			add_claim = c:PER
 		}
     }
+
+	c:RUS = {
+		create_diplomatic_pact = {
+			country = c:AUS
+			type = defensive_pact
+		}	
+	}
+	c:RUS = {
+		create_diplomatic_pact = {
+			country = c:PRU
+			type = defensive_pact
+		}	
+	}
+	c:AUS = {
+		create_diplomatic_pact = {
+			country = c:PRU
+			type = defensive_pact
+		}	
+	}
 }

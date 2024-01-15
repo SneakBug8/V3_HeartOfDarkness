@@ -20,6 +20,7 @@
 	}
 
 	possible = {
+		scope:target_country = { country_rank <= root.country_rank }
 		NOT = { has_war_with = scope:target_country }
 		NOT = { is_subject_of = scope:target_country }
 		is_junior_in_customs_union = no
@@ -193,14 +194,14 @@
 
 			add = {
 				desc = "DIPLOMATIC_ACCEPTANCE_SENIOR_PART"
-				value = 20
+				value = 30
 			}
 
 			add = {
 				desc = "DIPLOMATIC_ACCEPTANCE_GDP"
 				value = "scope:actor.ai_gdp_comparison(root)"
 				min = -10
-				max = 10
+				max = 20
 			}
 		
 			if = {
@@ -211,7 +212,7 @@
 					desc = "DIPLOMATIC_ACCEPTANCE_IDEOLOGICAL_OPINION"
 					value = "scope:actor.ai_ideological_opinion(root)"
 					multiply = 0.5
-					max = 20
+					max = 30
 				}					
 			}
 			else_if = {
@@ -650,9 +651,11 @@ join_customs_union = {
 		# we don't want to join someone else's union
 		# if we are the junior partner in an existing customs union,
 		# we cannot join another union anyways
-		is_in_customs_union = no
+		## is_in_customs_union = no
 		
 		has_diplomatic_relevance = scope:target_country
+
+		scope:target_country = { country_rank >= root.country_rank }
 
 		NOT = {
 			has_law = law_type:law_isolationism					

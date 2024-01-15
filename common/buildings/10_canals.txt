@@ -18,6 +18,8 @@
 		clear_size_area = no
 	}
 
+	ai_value = 2000
+
 	production_method_groups = {
 		pmg_canal
 		pmg_canal_boats
@@ -38,6 +40,8 @@ building_panama_canal = {
 	entity_under_construction = { "canal_panamacanal_under_construction_01_entity" }
 	entity_constructed = { "canal_panamacanal_01_entity" }
 	locator = "canal_panama_locator"
+
+	ai_value = 2000
 
 	city_gfx_interactions = {
 		clear_collision_mesh_area = yes
