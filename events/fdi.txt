@@ -152,9 +152,6 @@ fdi.2 = {
 
 		    add_treasury = -20000
         }
-
-
-    
 }
 
 fdi.3 = {

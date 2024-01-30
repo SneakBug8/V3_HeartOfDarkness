@@ -1,6 +1,5 @@
 namespace = history
 
-
 # Hungarian uprising
 history.2 = {
 	type = country_event
@@ -81,24 +80,21 @@ history.2 = {
         option = {
             default_option = yes
 
-
-            c:HUN = {
-                create_diplomatic_play = {
-                target_country = root
-                type = independence
+            create_diplomatic_play = {
+                target_country = c:HUN
+				type = dp_annex_war
 				primary_demand = yes
-
 
                 add_war_goal = {
-                    holder = root
-				    type = dp_annex_war
-                    target_country = c:HUN
+                    holder = c:HUN
+                    type = independence
+                    target_country = ROOT
 				primary_demand = yes
-
-                }
 
                 }
             }
+
+			change_infamy = -150
 
             ai_chance = {
 			base = 1
@@ -218,59 +214,6 @@ history.4 = {
         }
 }
 
-
-# French Directory
-history.5 = {
-	type = country_event
-	placement = ROOT
-
-    title = history.1.t
-	desc = history.1.d
-	flavor = history.1.f
-
-	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
-
-	icon = "gfx/interface/icons/event_icons/event_map.dds"
-
-	duration = 3
-
-	trigger = {
-        exists = c:FRA
-        c:FRA = ROOT
-		has_journal_entry = je_springtime_of_the_peoples
-        is_at_war = no
-		is_diplomatic_play_committed_participant = no
-		is_revolutionary = no
-
-        not = {
-            has_variable = french_directory
-        }
-        }
-
-        option = {
-            default_option = yes
-            set_variable = french_directory
-		activate_law = law_type:law_presidential_republic
-		activate_law = law_type:law_autocracy
-
-        ai_chance = {
-			    base = 1
-		    }
-        }
-
-        option = {
-            set_variable = french_directory
-
-            ai_chance = {
-			    base = 0
-		    }
-        }
-}
 
 # Filipino war
 history.6 = {
@@ -463,20 +406,16 @@ history.7 = {
         option = {
             default_option = yes
 
-            c:POL = {
-                create_diplomatic_play = {
-                    target_country = ROOT
+            create_diplomatic_play = {
+                target_country = c:POL
+				type = dp_annex_war
+				primary_demand = yes
+
+                add_war_goal = {
+                    holder = c:POL
                     type = independence
-				primary_demand = yes
-
-
-                    add_war_goal = {
-                        holder = ROOT
-                        type = dp_annex_war
-                        target_country = c:POL
-				primary_demand = yes
-
-                    }
+                    target_country = ROOT
+				    primary_demand = yes
                 }
             }
 
@@ -997,21 +936,16 @@ history.12 = {
             default_option = yes
 
 
-            c:SER = {
-                create_diplomatic_play = {
-                target_country = root
-                type = independence
+            create_diplomatic_play = {
+                target_country = c:SER
+				type = dp_annex_war
 				primary_demand = yes
-
 
                 add_war_goal = {
-                    holder = root
-				    type = dp_annex_war
-                    target_country = c:SER
-				primary_demand = yes
-
-                }
-
+                    holder = c:SER
+                    type = independence
+                    target_country = ROOT
+				    primary_demand = yes
                 }
             }
 
@@ -1068,21 +1002,16 @@ history.13 = {
             default_option = yes
 
 
-            c:MON = {
-                create_diplomatic_play = {
-                target_country = root
-                type = independence
+            create_diplomatic_play = {
+                target_country = c:MON
+				type = dp_annex_war
 				primary_demand = yes
-
 
                 add_war_goal = {
-                    holder = root
-				    type = dp_annex_war
-                    target_country = c:MON
-				primary_demand = yes
-
-                }
-
+                    holder = c:MON
+                    type = independence
+                    target_country = ROOT
+				    primary_demand = yes
                 }
             }
 

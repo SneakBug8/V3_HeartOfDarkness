@@ -25,13 +25,6 @@ italy_puppet.1 = {
 
 		OR = {
             AND = {
-                exists = c:ITA
-                c:ITA = {
-                    is_at_war = no
-                        has_technology_researched = nationalism
-                    }
-            }
-            AND = {
                 exists = c:SAR
                 c:SAR = {
                     is_at_war = no
@@ -58,10 +51,14 @@ italy_puppet.1 = {
                 }
                 NOT = {
                     owner = c:AUS
+                    owner = c:ITA
                 }
             }
 							
             NOT = { country_rank = rank_value:great_power }
+			is_at_war = no
+            is_diplomatic_play_committed_participant = no
+			is_revolutionary = no
         }
 
 	option = {
@@ -79,16 +76,6 @@ italy_puppet.1 = {
             }
 
             if = {
-                limit = {
-		            exists = c:ITA
-                    c:ITA = {
-                        has_technology_researched = nationalism
-                    }
-                }
-
-                set_state_owner = c:ITA
-            }
-            else_if = {
                 limit = {
                     exists = c:SAR
                     c:SAR = {
